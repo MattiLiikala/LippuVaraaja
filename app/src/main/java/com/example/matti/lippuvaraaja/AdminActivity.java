@@ -1,35 +1,24 @@
 package com.example.matti.lippuvaraaja;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity {
+public class AdminActivity extends ActionBarActivity {
 
-<<<<<<< HEAD
-    /*
-    Tässä gittitestauskommentti by sami jeeee
-     */
-=======
-    public final static String EXTRA_MESSAGE = "com.matti.LippuVaraaja.MESSAGE";
-
->>>>>>> 5af518a5a48f4fdb2c67f3ffc011873ecb997e3a
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_admin);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_admin, menu);
         return true;
     }
 
@@ -46,19 +35,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void login(View view) {
-        Intent intent;
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        if(message.equals("admin")) {
-            intent = new Intent(this, AdminActivity.class);
-        }
-        else {
-            intent = new Intent(this, AsiakasActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, message);
-        }
-        startActivity(intent);
     }
 }

@@ -116,25 +116,25 @@ public class SlidingTabsColorFragment extends Fragment {
          * color, which are used by {@link SlidingTabLayout}.
          */
         mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_stream), // Title
+                getString(R.string.tab_teatteri), // Title
                 Color.BLUE, // Indicator color
                 Color.GRAY // Divider color
         ));
 
         mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_messages), // Title
+                getString(R.string.tab_elokuvat), // Title
                 Color.RED, // Indicator color
                 Color.GRAY // Divider color
         ));
 
         mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_photos), // Title
+                getString(R.string.tab_paiva), // Title
                 Color.YELLOW, // Indicator color
                 Color.GRAY // Divider color
         ));
 
         mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_notifications), // Title
+                getString(R.string.tab_naytos), // Title
                 Color.GREEN, // Indicator color
                 Color.GRAY // Divider color
         ));

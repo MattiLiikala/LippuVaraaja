@@ -5,7 +5,20 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="Otsikko">Lippuvarauspalvelu!</string>
->        <string name="title_activity_asiakas">AsiakasActivity</string>
+    <string name="title_activity_asiakas">AsiakasActivity</string>
     <string name="title_activity_admin">AdminActivity</string>
+    <string name="tab_stream">Stream</string>
+    <string name="tab_messages">Messages</string>
+    <string name="tab_notifications">Notifications</string>
+    <string name="tab_photos">Photos</string>
+    <string name="intro_message">
+        <![CDATA[
+
+
+            Moroo.
+
+
+        ]]>
+    </string>
 
 </resources>

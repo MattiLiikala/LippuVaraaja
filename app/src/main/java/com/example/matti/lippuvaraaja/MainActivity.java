@@ -11,14 +11,10 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
-<<<<<<< HEAD
-    /*
-    Tässä gittitestauskommentti by sami jeeee
-     */
-=======
+
     public final static String EXTRA_MESSAGE = "com.matti.LippuVaraaja.MESSAGE";
 
->>>>>>> 5af518a5a48f4fdb2c67f3ffc011873ecb997e3a
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

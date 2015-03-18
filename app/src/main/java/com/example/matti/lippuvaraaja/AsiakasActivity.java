@@ -16,14 +16,15 @@ public class AsiakasActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
-        setContentView(textView);
-
         setContentView(R.layout.activity_asiakas);
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        TextView textView = (TextView)findViewById(R.id.nimikentta);
+        textView.setTextSize(40);
+        textView.setText("Tervetuloa "+ message+"!");
+
+
+
+
 
         if (savedInstanceState==null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

@@ -7,10 +7,10 @@
     <string name="Otsikko">Lippuvarauspalvelu!</string>
     <string name="title_activity_asiakas">AsiakasActivity</string>
     <string name="title_activity_admin">AdminActivity</string>
-    <string name="tab_stream">Stream</string>
-    <string name="tab_messages">Messages</string>
-    <string name="tab_notifications">Notifications</string>
-    <string name="tab_photos">Photos</string>
+    <string name="tab_teatteri">Teatteri</string>
+    <string name="tab_elokuvat">Elokuvat</string>
+    <string name="tab_paiva">Päivä</string>
+    <string name="tab_naytos">Näytös</string>
     <string name="intro_message">
         <![CDATA[
 

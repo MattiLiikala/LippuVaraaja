@@ -1,6 +1,8 @@
 package com.example.matti.lippuvaraaja;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,17 +10,28 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 
-public class AsiakasActivity extends ActionBarActivity {
+public class AsiakasActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         TextView textView = new TextView(this);
         textView.setTextSize(40);
         textView.setText(message);
         setContentView(textView);
+
+        setContentView(R.layout.activity_asiakas);
+
+        if (savedInstanceState==null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            SlidingTabsColorFragment fragment = new SlidingTabsColorFragment();
+            transaction.replace(R.id.sample_content_fragment, fragment);
+            transaction.commit();
+        }
+
     }
 
 

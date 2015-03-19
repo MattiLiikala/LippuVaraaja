@@ -5,7 +5,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
 
 
 public class VarausActivity extends ActionBarActivity {
@@ -15,10 +17,22 @@ public class VarausActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_varaus);
-        int[] salikoko = intent.getIntArrayExtra(AsiakasActivity.SALIKOKO);
         TextView textView = (TextView)findViewById(R.id.viesti);
         textView.setTextSize(40);
         textView.setText("Paikanvaraus");
+        int[] salikoko = intent.getIntArrayExtra(AsiakasActivity.SALIKOKO);
+
+        LinearLayout napit = (LinearLayout)findViewById(R.id.napit);
+        for (int i = 0; i<salikoko[0]; i++){
+            for(int j = 0; j<salikoko[1];j++){
+                Button penkki = new Button(this);
+                penkki.setText("Rivi" + i + ", Penkki" + j);
+                LinearLayout.LayoutParams layoutParams = new  LinearLayout.LayoutParams(70, 70);
+                layoutParams.setMargins(5, 3, 0, 0); // left, top, right, bottom
+                penkki.setLayoutParams(layoutParams);
+            }
+
+        }
     }
 
 

@@ -12,7 +12,7 @@
     <string name="tab_paiva">Päivä</string>
     <string name="tab_naytos">Näytös</string>
     <string name="intro_message">
-        <![CDATA[
+<![CDATA[
 
 
             Moroo.
@@ -20,5 +20,6 @@
 
         ]]>
     </string>
+    <string name="title_activity_varaus">VarausActivity</string>
 
 </resources>

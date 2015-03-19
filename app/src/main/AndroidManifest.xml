@@ -28,6 +28,14 @@
             android:name=".AdminActivity"
             android:label="@string/title_activity_admin" >
         </activity>
+        <activity
+            android:name=".VarausActivity"
+            android:label="@string/title_activity_varaus"
+            android:parentActivityName=".AsiakasActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.matti.lippuvaraaja.AsiakasActivity" />
+        </activity>
     </application>
 
 </manifest>

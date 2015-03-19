@@ -7,10 +7,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class AsiakasActivity extends FragmentActivity {
+
+    public final static String EXTRA_MESSAGE = "com.matti.LippuVaraaja.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +60,13 @@ public class AsiakasActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void varaa(View view) {
+        Intent intent;
+        String message = "ja eikun varaamaan";
+        intent = new Intent(this, VarausActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }

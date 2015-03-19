@@ -15,7 +15,7 @@ public class VarausActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_varaus);
-        String message = intent.getStringExtra(AsiakasActivity.EXTRA_MESSAGE);
+        int[] salikoko = intent.getIntArrayExtra(AsiakasActivity.SALIKOKO);
         TextView textView = (TextView)findViewById(R.id.viesti);
         textView.setTextSize(40);
         textView.setText("Paikanvaraus");

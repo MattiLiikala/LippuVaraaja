@@ -14,7 +14,11 @@ import android.widget.TextView;
 
 public class AsiakasActivity extends FragmentActivity {
 
-    public final static String EXTRA_MESSAGE = "com.matti.LippuVaraaja.MESSAGE";
+    public final static String ELOKUVA = "com.matti.LippuVaraaja.ELOKUVA";
+    public final static String AIKA = "com.matti.LippuVaraaja.AIKA";
+    public final static String SALIKOKO = "com.matti.LippuVaraaja.SALIKOKO";
+    public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
+    public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,8 @@ public class AsiakasActivity extends FragmentActivity {
         Intent intent;
         String message = "ja eikun varaamaan";
         intent = new Intent(this, VarausActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, message);
+        int[] sali = {10, 10};
+        intent.putExtra(SALIKOKO, sali);
         startActivity(intent);
     }
 }

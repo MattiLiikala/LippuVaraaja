@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
             intent = new Intent(this, AdminActivity.class);
         }
         else {
-            intent = new Intent(this, AsiakasActivity.class);
+            intent = new Intent(this, AsiakasActivity2.class);
             intent.putExtra(EXTRA_MESSAGE, message);
         }
         startActivity(intent);

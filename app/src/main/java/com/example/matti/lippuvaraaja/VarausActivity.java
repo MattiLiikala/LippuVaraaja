@@ -22,6 +22,7 @@ public class VarausActivity extends ActionBarActivity {
         textView.setText("Paikanvaraus");
         int[] salikoko = intent.getIntArrayExtra(AsiakasActivity.SALIKOKO);
 
+
         LinearLayout napit = (LinearLayout)findViewById(R.id.napit);
         for (int i = 0; i<salikoko[0]; i++){
             for(int j = 0; j<salikoko[1];j++){

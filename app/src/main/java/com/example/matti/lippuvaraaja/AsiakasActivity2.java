@@ -44,6 +44,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
         // create a fragment list in order.
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new ElokuvaFragment());
+        fragments.add(new TeatteriFragment());
 
 
         // use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles)

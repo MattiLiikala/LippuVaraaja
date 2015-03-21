@@ -19,8 +19,8 @@
     <TextView
         style="@style/Widget.SampleMessage"
         android:id="@+id/viesti"
-        android:text="Paikanvaraus"
-        android:textSize="30dp"
+        android:text=""
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/horizontal_page_margin"

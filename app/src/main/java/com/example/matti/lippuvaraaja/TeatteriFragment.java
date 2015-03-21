@@ -14,12 +14,13 @@ import android.widget.Toast;
  * Created by Sami on 19.3.2015.
  */
 public class TeatteriFragment extends Fragment {
-    ListView listView;
+    ListView listView2;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View teatteriFragmentView = inflater.inflate(R.layout.fragment_teatteri, container, false);
-        listView = (ListView) teatteriFragmentView.findViewById(android.R.id.list);
+        listView2 = (ListView) teatteriFragmentView.findViewById(android.R.id.list);
 
 
         // Defined Array values to show in ListView
@@ -35,14 +36,14 @@ public class TeatteriFragment extends Fragment {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_elokuva_teatteri, R.id.firstLine, values);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), R.layout.list_item_elokuva_teatteri, R.id.firstLine, values);
 
 
         // Assign adapter to ListView
-        listView.setAdapter(adapter);
+        listView2.setAdapter(adapter2);
 
         // ListView Item Click Listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -52,7 +53,9 @@ public class TeatteriFragment extends Fragment {
                 int itemPosition     = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView.getItemAtPosition(position);
+                String  itemValue    = (String) listView2.getItemAtPosition(position);
+
+                ((AsiakasActivity2)getActivity()).setTeatteri(itemValue);
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),
@@ -65,4 +68,6 @@ public class TeatteriFragment extends Fragment {
         return teatteriFragmentView;
 
     }
+
+
 }

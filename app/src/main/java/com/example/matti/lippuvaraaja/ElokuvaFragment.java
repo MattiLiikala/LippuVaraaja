@@ -1,5 +1,6 @@
 package com.example.matti.lippuvaraaja;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,8 +16,9 @@ import static android.widget.Toast.makeText;
 /**
  * Created by Sami on 19.3.2015.
  */
-public class ElokuvaFragment extends ListFragment {
+public class ElokuvaFragment extends Fragment {
     ListView listView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -65,6 +67,7 @@ public class ElokuvaFragment extends ListFragment {
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
 
+                ((AsiakasActivity2)getActivity()).setElokuva(itemValue);
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),
@@ -76,5 +79,6 @@ public class ElokuvaFragment extends ListFragment {
         });
         return elokuvaFragmentView;
     }
+
 }
 

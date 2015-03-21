@@ -28,6 +28,7 @@
         android:layout_alignRight="@+id/editText"
         android:layout_alignEnd="@+id/editText"
         android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignStart="@+id/editText"
+        />
 
 </RelativeLayout>

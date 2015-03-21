@@ -1,39 +1,101 @@
 package com.example.matti.lippuvaraaja;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
+import android.view.ViewTreeObserver;
+import android.widget.GridLayout;
 import android.widget.TextView;
-import android.widget.Button;
+import android.widget.Toast;
 
 
-public class VarausActivity extends ActionBarActivity {
+public class VarausActivity extends ActionBarActivity implements Penkki.OnToggledListener{
 
+    GridLayout napit;
+    Penkki[] penkit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
+
         setContentView(R.layout.activity_varaus);
-        TextView textView = (TextView)findViewById(R.id.viesti);
-        textView.setTextSize(40);
-        textView.setText("Paikanvaraus");
+
+        Intent intent = getIntent();
+        //TextView textView = (TextView)findViewById(R.id.viesti);
+        //textView.setTextSize(40);
+        //textView.setText("Paikanvaraus");
+
+
         int[] salikoko = intent.getIntArrayExtra(AsiakasActivity.SALIKOKO);
 
-        LinearLayout napit = (LinearLayout)findViewById(R.id.napit);
-        for (int i = 0; i<salikoko[0]; i++){
-            for(int j = 0; j<salikoko[1];j++){
-                Button penkki = new Button(this);
-                penkki.setText("Rivi" + i + ", Penkki" + j);
-                LinearLayout.LayoutParams layoutParams = new  LinearLayout.LayoutParams(70, 70);
-                layoutParams.setMargins(5, 3, 0, 0); // left, top, right, bottom
-                penkki.setLayoutParams(layoutParams);
+
+
+        napit = (GridLayout)findViewById(R.id.napit);
+        napit.setRowCount(salikoko[0]);
+        napit.setColumnCount(salikoko[1]);
+
+
+
+        int numOfCol = napit.getColumnCount();
+        int numOfRow = napit.getRowCount();
+        penkit = new Penkki[numOfCol*numOfRow];
+
+        for(int yPos=0; yPos<numOfRow; yPos++){
+            for(int xPos=0; xPos<numOfCol; xPos++){
+
+                Penkki penkki = new Penkki(this, xPos, yPos);
+                penkki.setOnToggledListener(this);
+                penkit[yPos*numOfCol + xPos] = penkki;
+                napit.addView(penkki);
+            }
+        }
+
+
+
+
+    napit.getViewTreeObserver().addOnGlobalLayoutListener(
+            new ViewTreeObserver.OnGlobalLayoutListener(){
+
+        @Override
+        public void onGlobalLayout() {
+
+            final int MARGIN = 5;
+
+            int pWidth = napit.getWidth();
+            int pHeight = napit.getHeight();
+            int numOfCol = napit.getColumnCount();
+            int numOfRow = napit.getRowCount();
+            int w = pWidth/numOfCol;
+            int h = pHeight/numOfRow;
+
+            for(int yPos=0; yPos<numOfRow; yPos++){
+                for(int xPos=0; xPos<numOfCol; xPos++){
+                    GridLayout.LayoutParams params =
+                            (GridLayout.LayoutParams) penkit[yPos*numOfCol + xPos].getLayoutParams();
+                    params.width = w - 2*MARGIN;
+                    params.height = h - 2*MARGIN;
+                    params.setMargins(MARGIN, MARGIN, MARGIN, MARGIN);
+                    penkit[yPos*numOfCol + xPos].setLayoutParams(params);
+                }
             }
 
-        }
+        }});
+}
+
+    @Override
+    public void OnToggled(Penkki v, boolean touchOn) {
+
+        //get the id string
+        String idString = v.getIdY() + ":" + v.getIdX();
+
+        Toast.makeText(VarausActivity.this,
+                "Toggled:\n" +
+                        idString + "\n" +
+                        touchOn,
+                Toast.LENGTH_SHORT).show();
     }
+
 
 
     @Override

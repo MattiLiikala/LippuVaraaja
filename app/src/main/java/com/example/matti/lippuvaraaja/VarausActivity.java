@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -118,5 +119,19 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void tallenna(View view){
+        String varatutPaikat = "";
+
+        for(int i = 0;i<penkit.length;i++) {
+            if (penkit[i].touchOn) {
+                varatutPaikat = varatutPaikat + penkit[i].getIdY() + ":" + penkit[i].getIdX() + " ";
+            }
+        }
+
+        Toast.makeText(VarausActivity.this,
+                "Varatut paikat:\n" + varatutPaikat,
+                Toast.LENGTH_SHORT).show();
     }
 }

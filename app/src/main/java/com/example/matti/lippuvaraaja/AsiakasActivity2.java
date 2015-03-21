@@ -70,13 +70,13 @@ public class AsiakasActivity2 extends ActionBarActivity {
         inflater.inflate(R.menu.menu_asiakas2, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     public void varaa(View view) {
         Intent intent;
         String message = "ja eikun varaamaan";
-        intent = new Intent(this, VarausActivity.class);
+        intent = new Intent(AsiakasActivity2.this, VarausActivity.class);
         int[] sali = {10, 10};
         intent.putExtra(SALIKOKO, sali);
         startActivity(intent);
     }
+
 }

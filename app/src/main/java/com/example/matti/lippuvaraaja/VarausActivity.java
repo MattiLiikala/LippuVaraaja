@@ -88,13 +88,14 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
     public void OnToggled(Penkki v, boolean touchOn) {
 
         //get the id string
-        String idString = v.getIdY() + ":" + v.getIdX();
 
-        Toast.makeText(VarausActivity.this,
-                "Toggled:\n" +
-                        idString + "\n" +
-                        touchOn,
-                Toast.LENGTH_SHORT).show();
+        //String idString = v.getIdY() + ":" + v.getIdX();
+
+        //Toast.makeText(VarausActivity.this,
+        //        "Toggled:\n" +
+        //                idString + "\n" +
+        //                touchOn,
+        //        Toast.LENGTH_SHORT).show();
     }
 
 

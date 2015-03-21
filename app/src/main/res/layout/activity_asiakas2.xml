@@ -5,7 +5,8 @@
     android:orientation="vertical"
     tools:context=".AsiakasActivity2"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-    >
+    android:gravity="right"
+    android:weightSum="1">
 
 
     <TextView
@@ -18,16 +19,28 @@
         android:paddingTop="@dimen/vertical_page_margin"
         android:paddingBottom="@dimen/vertical_page_margin"
         android:text=""
+        android:layout_gravity="right"
         />
 
     <com.example.matti.lippuvaraaja.view.SlidingTabLayout
         android:id="@+id/tab"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+         />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tab"/>
+        android:layout_below="@+id/tab"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Siirry varaukseen"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:onClick="varaa"/>
 </LinearLayout>

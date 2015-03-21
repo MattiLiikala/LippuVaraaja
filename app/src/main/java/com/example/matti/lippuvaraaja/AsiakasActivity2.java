@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.matti.lippuvaraaja.view.SlidingTabLayout;
@@ -19,6 +20,11 @@ import java.util.ArrayList;
 
 
 public class AsiakasActivity2 extends ActionBarActivity {
+    public final static String ELOKUVA = "com.matti.LippuVaraaja.ELOKUVA";
+    public final static String AIKA = "com.matti.LippuVaraaja.AIKA";
+    public final static String SALIKOKO = "com.matti.LippuVaraaja.SALIKOKO";
+    public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
+    public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,8 +33,8 @@ public class AsiakasActivity2 extends ActionBarActivity {
         setContentView(R.layout.activity_asiakas2);
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         TextView textView = (TextView)findViewById(R.id.nimikentta2);
-        textView.setTextSize(40);
-        textView.setText("Tervetuloa "+ message+"!");
+        textView.setTextSize(10);
+        textView.setText("Kirjautunut: "+ message+"!");
 /*
         if (savedInstanceState==null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -63,5 +69,14 @@ public class AsiakasActivity2 extends ActionBarActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_asiakas2, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void varaa(View view) {
+        Intent intent;
+        String message = "ja eikun varaamaan";
+        intent = new Intent(this, VarausActivity.class);
+        int[] sali = {10, 10};
+        intent.putExtra(SALIKOKO, sali);
+        startActivity(intent);
     }
 }

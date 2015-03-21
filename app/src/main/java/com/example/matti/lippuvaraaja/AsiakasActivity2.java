@@ -30,18 +30,19 @@ public class AsiakasActivity2 extends ActionBarActivity {
     String elokuva;
     String teatteri;
     String paiva;
+    String nimi;
 
         @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_asiakas2);
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        nimi = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         TextView textView = (TextView)findViewById(R.id.nimikentta2);
         textView.setTextSize(10);
-        textView.setText("Kirjautunut: "+ message+"!");
+        textView.setText("Kirjautunut: "+ nimi+"!");
 
-        Toast.makeText(this, "Tervetuloa " + message + "!", Toast.LENGTH_SHORT)
+        Toast.makeText(this, "Tervetuloa " + nimi + "!", Toast.LENGTH_SHORT)
                 .show();
 /*
         if (savedInstanceState==null) {
@@ -82,9 +83,8 @@ public class AsiakasActivity2 extends ActionBarActivity {
     }
     public void varaa(View view) {
         Intent intent;
-        String message = "ja eikun varaamaan";
         intent = new Intent(AsiakasActivity2.this, VarausActivity.class);
-        intent.putExtra(VARAAJA, message);
+        intent.putExtra(VARAAJA, nimi);
         intent.putExtra(ELOKUVA, elokuva);
         intent.putExtra(TEATTERI, teatteri);
         intent.putExtra(PAIVA, paiva);

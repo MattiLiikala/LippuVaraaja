@@ -65,7 +65,7 @@ public class AsiakasActivity extends FragmentActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+/*
     public void varaa(View view) {
         Intent intent;
         String message = "ja eikun varaamaan";
@@ -74,4 +74,5 @@ public class AsiakasActivity extends FragmentActivity {
         intent.putExtra(SALIKOKO, sali);
         startActivity(intent);
     }
+    */
 }

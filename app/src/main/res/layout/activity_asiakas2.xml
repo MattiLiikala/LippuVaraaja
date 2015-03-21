@@ -16,11 +16,11 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/horizontal_page_margin"
         android:paddingRight="@dimen/horizontal_page_margin"
-        android:paddingTop="@dimen/vertical_page_margin"
-        android:paddingBottom="@dimen/vertical_page_margin"
+        android:paddingTop="@dimen/margin_tiny"
+        android:paddingBottom="@dimen/margin_tiny"
         android:text=""
         android:layout_gravity="right"
-        />
+        android:gravity="right" />
 
     <com.example.matti.lippuvaraaja.view.SlidingTabLayout
         android:id="@+id/tab"

@@ -1,4 +1,5 @@
-package com.example.matti.lippuvaraaja;
+package com.example.matti.lippuvaraaja.view;
+
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -62,6 +63,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
 
     private final SlidingTabStrip mTabStrip;
+    private boolean mDistributeEvenly;
 
     public SlidingTabLayout(Context context) {
         this(context, null);
@@ -102,6 +104,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     public void setSelectedIndicatorColors(int... colors) {
         mTabStrip.setSelectedIndicatorColors(colors);
+    }
+
+    public void setDistributeEvenly(boolean distributeEvenly) {
+        mDistributeEvenly = distributeEvenly;
     }
 
     /**
@@ -179,7 +185,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     }
 
     private void populateTabStrip() {
-        final Adapteri adapter = (Adapteri) mViewPager.getAdapter();
+        final PagerAdapter adapter = mViewPager.getAdapter();
         final View.OnClickListener tabClickListener = new TabClickListener();
 
         for (int i = 0; i < adapter.getCount(); i++) {

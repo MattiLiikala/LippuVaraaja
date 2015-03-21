@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 
 public class VarausActivity extends ActionBarActivity implements Penkki.OnToggledListener{
-
+    
     GridLayout napit;
     Penkki[] penkit;
     @Override

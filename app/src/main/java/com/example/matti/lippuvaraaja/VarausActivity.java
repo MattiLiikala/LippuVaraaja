@@ -30,8 +30,13 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         String elokuva = intent.getStringExtra(AsiakasActivity2.ELOKUVA);
         String teatteri = intent.getStringExtra(AsiakasActivity2.TEATTERI);
         String paiva = intent.getStringExtra(AsiakasActivity2.PAIVA);
+        String varaaja = intent.getStringExtra(AsiakasActivity2.VARAAJA);
 
         int[] salikoko = {10, 10};
+
+        TextView nimi = (TextView)findViewById(R.id.nimi);
+        nimi.setTextSize(10);
+        nimi.setText("Kirjautunut: "+ varaaja+"!");
 
         TextView textView = (TextView)findViewById(R.id.viesti);
         textView.setText("" + elokuva + " | " + paiva + "\n" + teatteri);

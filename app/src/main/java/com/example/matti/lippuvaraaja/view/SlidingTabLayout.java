@@ -7,11 +7,13 @@ import android.os.Build;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -61,6 +63,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     private ViewPager mViewPager;
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
+    private SparseArray<String> mContentDescriptions = new SparseArray<>();
 
     private final SlidingTabStrip mTabStrip;
     private boolean mDistributeEvenly;
@@ -187,30 +190,36 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private void populateTabStrip() {
         final PagerAdapter adapter = mViewPager.getAdapter();
         final View.OnClickListener tabClickListener = new TabClickListener();
-
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView = null;
             TextView tabTitleView = null;
-
             if (mTabViewLayoutId != 0) {
-                // If there is a custom tab view layout id set, try and inflate it
+// If there is a custom tab view layout id set, try and inflate it
                 tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
                         false);
                 tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
             }
-
             if (tabView == null) {
                 tabView = createDefaultTabView(getContext());
             }
-
             if (tabTitleView == null && TextView.class.isInstance(tabView)) {
                 tabTitleView = (TextView) tabView;
             }
-
+            if (mDistributeEvenly) {
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                        0, LayoutParams.WRAP_CONTENT, 1f);
+                tabView.setLayoutParams(lp);
+            }
             tabTitleView.setText(adapter.getPageTitle(i));
             tabView.setOnClickListener(tabClickListener);
-
+            String desc = mContentDescriptions.get(i, null);
+            if (desc != null) {
+                tabView.setContentDescription(desc);
+            }
             mTabStrip.addView(tabView);
+            if (i == mViewPager.getCurrentItem()) {
+                tabView.setSelected(true);
+            }
         }
     }
 

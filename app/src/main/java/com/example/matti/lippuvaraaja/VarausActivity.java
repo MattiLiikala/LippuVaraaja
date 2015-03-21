@@ -28,7 +28,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         //textView.setText("Paikanvaraus");
 
 
-        int[] salikoko = intent.getIntArrayExtra(AsiakasActivity.SALIKOKO);
+        int[] salikoko = intent.getIntArrayExtra(AsiakasActivity2.SALIKOKO);
 
 
 

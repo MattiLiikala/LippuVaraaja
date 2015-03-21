@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import static android.widget.Toast.makeText;
+
 /**
  * Created by Sami on 19.3.2015.
  */
@@ -26,14 +28,14 @@ public class ElokuvaFragment extends ListFragment {
 
 
         // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
+        String[] values = new String[] { "Samin kosto",
+                "Samin kosto ja paluu",
+                "Matin uhka",
+                "Annan kirous",
+                "Santerin liekehtivä sikari",
+                "Digitin kilta",
+                "Sami V: MuumioSami",
+                "Santerin Päiväkirjat"
         };
 
         // Define a new Adapter
@@ -63,7 +65,7 @@ public class ElokuvaFragment extends ListFragment {
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),
-                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
+                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_SHORT)
                         .show();
 
             }

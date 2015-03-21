@@ -38,7 +38,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
 /*
         if (savedInstanceState==null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            SlidingTabsColorFragment fragment = new SlidingTabsColorFragment();
+
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }

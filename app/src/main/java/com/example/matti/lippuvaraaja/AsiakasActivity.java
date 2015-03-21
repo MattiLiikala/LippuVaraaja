@@ -66,12 +66,12 @@ public class AsiakasActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void varaa(View view) {
-        Intent intent;
-        String message = "ja eikun varaamaan";
-        intent = new Intent(this, VarausActivity.class);
-        int[] sali = {10, 10};
-        intent.putExtra(SALIKOKO, sali);
-        startActivity(intent);
-    }
+    //public void varaa(View view) {
+      //  Intent intent;
+        //String message = "ja eikun varaamaan";
+        //intent = new Intent(this, VarausActivity.class);
+        //int[] sali = {10, 10};
+        //intent.putExtra(SALIKOKO, sali);
+        //startActivity(intent);
+    //}
 }

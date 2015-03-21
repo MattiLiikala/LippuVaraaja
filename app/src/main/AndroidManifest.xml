@@ -35,10 +35,10 @@
         <activity
             android:name=".VarausActivity"
             android:label="@string/title_activity_varaus"
-            android:parentActivityName=".AsiakasActivity" >
+            android:parentActivityName=".AsiakasActivity2" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.matti.lippuvaraaja.AsiakasActivity" />
+                android:value="com.example.matti.lippuvaraaja.AsiakasActivity2" />
         </activity>
     </application>
 

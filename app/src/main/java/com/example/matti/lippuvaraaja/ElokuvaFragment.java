@@ -2,7 +2,6 @@ package com.example.matti.lippuvaraaja;
 
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +43,9 @@ public class ElokuvaFragment extends ListFragment {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_titanic, R.id.firstLine, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_elokuva_teatteri, R.id.firstLine, values);
+
+
 
 
         // Assign adapter to ListView
@@ -62,6 +63,8 @@ public class ElokuvaFragment extends ListFragment {
 
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
+
+
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),

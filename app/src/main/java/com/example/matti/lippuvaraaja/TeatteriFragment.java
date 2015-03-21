@@ -35,7 +35,7 @@ public class TeatteriFragment extends Fragment {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_titanic, R.id.firstLine, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_elokuva_teatteri, R.id.firstLine, values);
 
 
         // Assign adapter to ListView

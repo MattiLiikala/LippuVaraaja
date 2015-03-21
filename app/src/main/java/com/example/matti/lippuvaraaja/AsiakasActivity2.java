@@ -26,6 +26,9 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
     /** Called when the activity is first created. */
+
+    String elokuva;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +81,8 @@ public class AsiakasActivity2 extends ActionBarActivity {
         intent = new Intent(AsiakasActivity2.this, VarausActivity.class);
         int[] sali = {10, 10};
         intent.putExtra(SALIKOKO, sali);
+
+        intent.putExtra(ELOKUVA, elokuva);
         startActivity(intent);
     }
 

@@ -23,7 +23,8 @@ public class NaytosFragment extends Fragment {
 
         for( Naytos k : listaAdapteri.getKaikkiNaytokset()){
             if(k.getElokuva().equals(((AsiakasActivity2)getActivity()).getElokuva())
-                    && k.getTeatteri().equals(((AsiakasActivity2)getActivity()).getTeatteri())){
+                    && k.getTeatteri().equals(((AsiakasActivity2)getActivity()).getTeatteri())
+                    && k.getPvm().equals(((AsiakasActivity2)getActivity()).getPaiva())){
                 listaAdapteri.lisaaNaytosListaan(k);
             }
         }

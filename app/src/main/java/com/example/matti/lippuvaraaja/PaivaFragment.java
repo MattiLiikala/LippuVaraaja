@@ -30,9 +30,9 @@ public class PaivaFragment extends Fragment {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int date) {
-                Toast.makeText(getActivity().getApplicationContext(), date + "/" + month + "/" + year, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), date + "/" + (month+1) + "/" + year, Toast.LENGTH_SHORT).show();
 
-                ((AsiakasActivity2)getActivity()).setPaiva(date + "/" + month + "/" + year);
+                ((AsiakasActivity2)getActivity()).setPaiva(date + "/" + (month+1) + "/" + year);
 
                 paiva = view.getDate();
             }

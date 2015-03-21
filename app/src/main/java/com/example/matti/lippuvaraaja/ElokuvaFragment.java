@@ -1,8 +1,8 @@
 package com.example.matti.lippuvaraaja;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +16,9 @@ import static android.widget.Toast.makeText;
 /**
  * Created by Sami on 19.3.2015.
  */
-public class ElokuvaFragment extends ListFragment {
+public class ElokuvaFragment extends Fragment {
     ListView listView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -44,7 +45,9 @@ public class ElokuvaFragment extends ListFragment {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_titanic, R.id.firstLine, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_elokuva_teatteri, R.id.firstLine, values);
+
+
 
 
         // Assign adapter to ListView
@@ -63,6 +66,9 @@ public class ElokuvaFragment extends ListFragment {
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
+
+                ((AsiakasActivity2)getActivity()).setElokuva(itemValue);
+
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_SHORT)
@@ -73,5 +79,6 @@ public class ElokuvaFragment extends ListFragment {
         });
         return elokuvaFragmentView;
     }
+
 }
 

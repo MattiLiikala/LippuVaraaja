@@ -47,6 +47,7 @@
         android:layout_weight="1"
         android:id="@+id/tallennus"
         android:text="Tallenna varaus"
+        android:onClick="tallenna"
 
         />
     </LinearLayout>

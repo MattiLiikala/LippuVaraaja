@@ -63,6 +63,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
 
     private final SlidingTabStrip mTabStrip;
+    private boolean mDistributeEvenly;
 
     public SlidingTabLayout(Context context) {
         this(context, null);
@@ -103,6 +104,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     public void setSelectedIndicatorColors(int... colors) {
         mTabStrip.setSelectedIndicatorColors(colors);
+    }
+
+    public void setDistributeEvenly(boolean distributeEvenly) {
+        mDistributeEvenly = distributeEvenly;
     }
 
     /**

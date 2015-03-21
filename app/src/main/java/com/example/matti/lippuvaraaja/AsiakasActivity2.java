@@ -3,12 +3,14 @@ package com.example.matti.lippuvaraaja;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.TextView;
 
 import com.example.matti.lippuvaraaja.view.SlidingTabLayout;
@@ -42,7 +44,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         // create a fragment list in order.
-        ArrayList<Fragment> fragments = new ArrayList<>();
+        ArrayList<android.support.v4.app.Fragment> fragments = new ArrayList<>();
         fragments.add(new ElokuvaFragment());
         fragments.add(new TeatteriFragment());
 
@@ -52,8 +54,14 @@ public class AsiakasActivity2 extends ActionBarActivity {
         FragmentManager manager = getSupportFragmentManager();
         Adapteri adapteri =new Adapteri(manager, fragments);
         viewPager.setAdapter(adapteri);
-       // slidingTabLayout.setDistributeEvenly(true);
+        slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(viewPager);
 
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_asiakas2, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

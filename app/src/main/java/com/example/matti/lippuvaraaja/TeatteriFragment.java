@@ -49,8 +49,7 @@ public class TeatteriFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                // ListView Clicked item index
-                int itemPosition     = position;
+
 
                 // ListView Clicked item value
                 String  itemValue    = (String) listView2.getItemAtPosition(position);
@@ -59,7 +58,7 @@ public class TeatteriFragment extends Fragment {
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),
-                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_SHORT)
+                        "Teatteri: " + itemValue, Toast.LENGTH_SHORT)
                         .show();
 
             }

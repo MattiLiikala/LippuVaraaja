@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.matti.lippuvaraaja.view.SlidingTabLayout;
 
@@ -39,6 +40,9 @@ public class AsiakasActivity2 extends ActionBarActivity {
         TextView textView = (TextView)findViewById(R.id.nimikentta2);
         textView.setTextSize(10);
         textView.setText("Kirjautunut: "+ message+"!");
+
+        Toast.makeText(this, "Tervetuloa " + message + "!", Toast.LENGTH_SHORT)
+                .show();
 /*
         if (savedInstanceState==null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -94,6 +98,12 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public void setTeatteri(String teatteri){
         this.teatteri = teatteri;
 
+    }
+    public String getElokuva(){
+        return elokuva;
+    }
+    public String getTeatteri(){
+        return teatteri;
     }
 
 }

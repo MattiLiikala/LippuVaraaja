@@ -24,16 +24,17 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
 
         Intent intent = getIntent();
 
-        //textView.setTextSize(40);
-        //textView.setText("Paikanvaraus");
 
 
-        int[] salikoko = intent.getIntArrayExtra(AsiakasActivity2.SALIKOKO);
+
         String elokuva = intent.getStringExtra(AsiakasActivity2.ELOKUVA);
         String teatteri = intent.getStringExtra(AsiakasActivity2.TEATTERI);
+        String paiva = intent.getStringExtra(AsiakasActivity2.PAIVA);
+
+        int[] salikoko = {10, 10};
 
         TextView textView = (TextView)findViewById(R.id.viesti);
-        textView.setText("" + elokuva + "\n" + teatteri);
+        textView.setText("" + elokuva + " | " + paiva + "\n" + teatteri);
 
         napit = (GridLayout)findViewById(R.id.napit);
         napit.setRowCount(salikoko[0]);

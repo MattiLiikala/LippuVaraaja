@@ -13,6 +13,8 @@ import android.widget.Toast;
  */
 public class PaivaFragment extends Fragment {
 
+    Long paiva;
+
     CalendarView calView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -21,16 +23,18 @@ public class PaivaFragment extends Fragment {
         calView = (CalendarView) paivaFragmentView.findViewById(R.id.calendarView);
 
 
-        if(((AsiakasActivity2) getActivity()).getPaiva() != null) {
-            calView.setDate(((AsiakasActivity2) getActivity()).getPaiva());
+        if(paiva != null){
+            calView.setDate(paiva);
         }
-
         calView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
-            public void onSelectedDayChange(CalendarView arg0, int year, int month, int date) {
+            public void onSelectedDayChange(CalendarView view, int year, int month, int date) {
                 Toast.makeText(getActivity().getApplicationContext(), date + "/" + month + "/" + year, Toast.LENGTH_SHORT).show();
-                ((AsiakasActivity2)getActivity()).setPaiva(arg0.getDate());
+
+                ((AsiakasActivity2)getActivity()).setPaiva(date + "/" + month + "/" + year);
+
+                paiva = view.getDate();
             }
         });
 

@@ -22,15 +22,14 @@ import java.util.ArrayList;
 
 public class AsiakasActivity2 extends ActionBarActivity {
     public final static String ELOKUVA = "com.matti.LippuVaraaja.ELOKUVA";
-    public final static String AIKA = "com.matti.LippuVaraaja.AIKA";
-    public final static String SALIKOKO = "com.matti.LippuVaraaja.SALIKOKO";
+    public final static String PAIVA = "com.matti.LippuVaraaja.PAIVA";
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
     /** Called when the activity is first created. */
 
     String elokuva;
     String teatteri;
-    Long paiva;
+    String paiva;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,11 +84,10 @@ public class AsiakasActivity2 extends ActionBarActivity {
         Intent intent;
         String message = "ja eikun varaamaan";
         intent = new Intent(AsiakasActivity2.this, VarausActivity.class);
-        int[] sali = {10, 10};
-        intent.putExtra(SALIKOKO, sali);
         intent.putExtra(VARAAJA, message);
         intent.putExtra(ELOKUVA, elokuva);
         intent.putExtra(TEATTERI, teatteri);
+        intent.putExtra(PAIVA, paiva);
         startActivity(intent);
     }
 
@@ -101,7 +99,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
         this.teatteri = teatteri;
 
     }
-    public void setPaiva(Long paiva){
+    public void setPaiva(String paiva){
         this.paiva = paiva;
     }
     public String getElokuva(){
@@ -110,6 +108,6 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public String getTeatteri(){
         return teatteri;
     }
-    public Long getPaiva(){return paiva;}
+    public String getPaiva(){return paiva;}
 
 }

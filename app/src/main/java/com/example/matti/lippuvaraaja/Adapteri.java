@@ -11,8 +11,12 @@ public class Adapteri extends FragmentPagerAdapter {
    private ArrayList<android.support.v4.app.Fragment> fragments;
     private static final int ELOKUVA = 0;
     private static final int TEATTERI = 1;
+    private static final int PAIVA = 2;
+    private static final int NAYTOS = 3;
     private static final String ELOKUVA_OTSIKKO = "ELOKUVA";
     private static final String TEATTERI_OTSIKKO = "TEATTERI";
+    private static final String PAIVA_OTSIKKO = "PÄIVÄ";
+    private static final String NAYTOS_OTSIKKO = "NÄYTÖS";
 
     public Adapteri(FragmentManager fm, ArrayList<Fragment> fragments) {
         super(fm);
@@ -37,12 +41,13 @@ public class Adapteri extends FragmentPagerAdapter {
                 return ELOKUVA_OTSIKKO;
             case TEATTERI:
                 return TEATTERI_OTSIKKO;
-            /*
-            case MEET:
-                return UI_TAB_MEET;
-            case PARTY:
-                return UI_TAB_PARTY;
-                */
+
+            case PAIVA:
+                return PAIVA_OTSIKKO;
+
+            case NAYTOS:
+                return NAYTOS_OTSIKKO;
+
             default:
                 break;
         }

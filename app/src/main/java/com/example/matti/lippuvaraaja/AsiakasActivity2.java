@@ -53,6 +53,8 @@ public class AsiakasActivity2 extends ActionBarActivity {
         ArrayList<android.support.v4.app.Fragment> fragments = new ArrayList<>();
         fragments.add(new ElokuvaFragment());
         fragments.add(new TeatteriFragment());
+        fragments.add(new PaivaFragment());
+        fragments.add(new NaytosFragment());
 
 
         // use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles)

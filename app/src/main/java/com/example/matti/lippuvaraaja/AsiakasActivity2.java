@@ -26,12 +26,12 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public final static String SALIKOKO = "com.matti.LippuVaraaja.SALIKOKO";
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
-    /** Called when the activity is first created. */
+
 
     String elokuva;
     String teatteri;
 
-    @Override
+        @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();

@@ -18,11 +18,26 @@ import static android.app.PendingIntent.getActivity;
  */
 public class ListaAdapteri extends BaseAdapter {
     List<Naytos> naytosLista;
+    List<Naytos> kaikkiNaytokset;
     Context context;
+
 
     public ListaAdapteri(Context context){
         this.context = context;
-        naytosLista = getDataForListView();
+        naytosLista =  new ArrayList<>();
+        kaikkiNaytokset = new ArrayList<>();
+        Naytos naytos1 = new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00");
+        Naytos naytos2 = new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "20:00");
+        Naytos naytos3 = new Naytos("Samin kosto", "Paimio International", 2, "27/3/2015", "18:00");
+        Naytos naytos4 = new Naytos("Samin kosto", "Paimio International", 2, "28/3/2015", "18:00");
+        Naytos naytos5 = new Naytos("Samin kosto", "Kaarina RockCity", 2, "28/3/2015", "18:00");
+
+        kaikkiNaytokset.add(naytos1);
+        kaikkiNaytokset.add(naytos2);
+        kaikkiNaytokset.add(naytos3);
+        kaikkiNaytokset.add(naytos4);
+        kaikkiNaytokset.add(naytos5);
+
     }
 
 
@@ -66,16 +81,19 @@ public class ListaAdapteri extends BaseAdapter {
         return arg1;
     }
 
-    public List<Naytos> getDataForListView()
-    {
-        List<Naytos> naytokset = new ArrayList<>();
-
-        naytokset.add(new Naytos("Matti iskee takaisin", "Toijalan Kino", 1, "20.5.2015", "20:15"));
-        naytokset.add(new Naytos("Joelin paluu", "Kinopalatsi", 3, "13.5.2015", "19:00"));
-
-        return naytokset;
-
+    public void lisaaNaytosListaan(Naytos lisattava){
+        naytosLista.add(lisattava);
+        /*
+        for( Naytos k : kaikkiNaytokset){
+            if(k.getElokuva().equals(((AsiakasActivity2)getActivity()).getElokuva())
+                    && k.getTeatteri().equals(((AsiakasActivity2)getActivity()).getTeatteri())){
+                naytosLista.add(k);
+            }
+        }
+        */
     }
 
-
+    public List<Naytos> getKaikkiNaytokset() {
+        return kaikkiNaytokset;
+    }
 }

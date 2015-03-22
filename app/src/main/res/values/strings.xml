@@ -5,9 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="Otsikko">Lippuvarauspalvelu!</string>
-    <string name="title_activity_asiakas">AsiakasActivity</string>
-    <string name="title_activity_asiakas2">AsiakasActivity2</string>
-    <string name="title_activity_admin">AdminActivity</string>
+    <string name="title_activity_asiakas2">Näytöksen valinta</string>
+    <string name="title_activity_admin">Näytösten hallinta</string>
     <string name="tab_teatteri">Teatteri</string>
     <string name="tab_elokuvat">Elokuvat</string>
     <string name="tab_paiva">Päivä</string>
@@ -21,7 +20,7 @@
 
         ]]>
     </string>
-    <string name="title_activity_varaus">VarausActivity</string>
+    <string name="title_activity_varaus">Varauksen tallennus</string>
     <string name="dialog_message">\"\"</string>
     <string name="dialog_title">Tulevat näytökset</string>
     <string name="valitse_naytos">Valitse näytös</string>

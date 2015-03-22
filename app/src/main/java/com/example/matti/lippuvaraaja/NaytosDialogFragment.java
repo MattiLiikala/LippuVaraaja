@@ -82,11 +82,7 @@ public class NaytosDialogFragment extends DialogFragment {
                         Intent intent;
                         intent = new Intent(getActivity(), VarausActivity.class);
                         intent.putExtra(((AsiakasActivity2) getActivity()).VARAAJA, ((AsiakasActivity2) getActivity()).getNimi());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).ELOKUVA, ((AsiakasActivity2) getActivity()).getElokuva());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).TEATTERI, ((AsiakasActivity2) getActivity()).getTeatteri());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).PAIVA, ((AsiakasActivity2) getActivity()).getPaiva());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).KELLO, valittuKello);
-                        intent.putExtra(((AsiakasActivity2) getActivity()).SALI, valittuSali);
+                        intent.putExtra(((AsiakasActivity2)getActivity()).VALITTUNAYTOS, naytosLista.get(listanNaytos));
                         startActivity(intent);
                     }
 
@@ -105,37 +101,12 @@ public class NaytosDialogFragment extends DialogFragment {
 
 
 
-     /*
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
 
-                //Do stuff, possibly set wantToCloseDialog to true then...
-                if(!onNaytoksia || !naytosValittu)
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setClickable(false);
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.LTGRAY);
 
-                if(onNaytoksia && naytosValittu){
 
-                    Intent intent;
-                    intent = new Intent(getActivity(), VarausActivity.class);
-
-                    intent.putExtra(((AsiakasActivity2)getActivity()).VARAAJA,  ((AsiakasActivity2)getActivity()).getNimi());
-                    /*
-                    intent.putExtra(((AsiakasActivity2)getActivity()).ELOKUVA, ((AsiakasActivity2)getActivity()).getElokuva());
-                    intent.putExtra(((AsiakasActivity2)getActivity()).TEATTERI, ((AsiakasActivity2)getActivity()).getTeatteri());
-                    intent.putExtra(((AsiakasActivity2)getActivity()).PAIVA, ((AsiakasActivity2)getActivity()).getPaiva());
-                    intent.putExtra(((AsiakasActivity2)getActivity()).KELLO, valittuKello);
-                    intent.putExtra(((AsiakasActivity2)getActivity()).SALI, valittuSali);
-                    */
-                    intent.putExtra(((AsiakasActivity2)getActivity()).VALITTUNAYTOS, naytosLista.get(listanNaytos));
-                    startActivity(intent);
-                }
                 //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
-            }
-        });
+
+
 /*
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener()
         {

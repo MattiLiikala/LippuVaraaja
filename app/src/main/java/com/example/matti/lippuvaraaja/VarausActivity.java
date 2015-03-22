@@ -157,9 +157,10 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
                 varatutPaikat = varatutPaikat + penkit[i].getIdY() + ":" + penkit[i].getIdX() + " ";
             }
         }
-
-        Toast.makeText(VarausActivity.this,
-                "Varatut paikat:\n" + varatutPaikat,
-                Toast.LENGTH_SHORT).show();
+        if(!varatutPaikat.equals(null) && !varatutPaikat.equals("")) {
+            Toast.makeText(VarausActivity.this,
+                    "Varatut paikat:\n" + varatutPaikat,
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }

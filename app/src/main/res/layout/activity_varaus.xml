@@ -43,6 +43,15 @@
 
         />
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="@string/valkokangas"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
 
     <GridLayout
         android:id="@+id/napit"

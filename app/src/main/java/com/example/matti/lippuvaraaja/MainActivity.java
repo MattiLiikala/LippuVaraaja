@@ -77,6 +77,9 @@ public class MainActivity extends ActionBarActivity {
             startActivityForResult(intent, NAYTOS_TALLENNUS);
             //intent.putExtra(TIEDOT, tiedot);
         }
+        else if(message.equals(null) || message.equals("")){
+            Toast.makeText(MainActivity.this, "Kirjoita käyttäjänimesi", Toast.LENGTH_SHORT).show();
+        }
         else {
             intent = new Intent(this, AsiakasActivity2.class);
             intent.putExtra(EXTRA_MESSAGE, message);

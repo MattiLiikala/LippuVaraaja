@@ -19,7 +19,7 @@ public class TeatteriFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View teatteriFragmentView = inflater.inflate(R.layout.fragment_teatteri, container, false);
+        View teatteriFragmentView = inflater.inflate(R.layout.fragment_elokuva_teatteri, container, false);
         listView2 = (ListView) teatteriFragmentView.findViewById(android.R.id.list);
 
 

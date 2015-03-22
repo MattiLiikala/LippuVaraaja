@@ -56,10 +56,11 @@ public class TeatteriFragment extends Fragment {
                 ((AsiakasActivity2)getActivity()).setTeatteri(itemValue);
 
                 // Show Alert
+                /*
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Teatteri: " + itemValue, Toast.LENGTH_SHORT)
                         .show();
-
+*/
             }
 
         });

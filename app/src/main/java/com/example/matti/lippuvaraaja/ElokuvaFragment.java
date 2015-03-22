@@ -63,10 +63,11 @@ public class ElokuvaFragment extends Fragment {
                 ((AsiakasActivity2)getActivity()).setElokuva(itemValue);
 
                 // Show Alert
+                /*
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Elokuva: " + itemValue, Toast.LENGTH_SHORT)
                         .show();
-
+*/
             }
 
         });

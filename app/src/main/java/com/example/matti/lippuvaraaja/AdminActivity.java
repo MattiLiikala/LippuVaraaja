@@ -15,17 +15,20 @@ import java.util.ArrayList;
 
 
 public class AdminActivity extends ActionBarActivity {
+    private YllapidonTiedot tiedot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        tiedot = (YllapidonTiedot) getIntent().getSerializableExtra(MainActivity.TIEDOT);
         TextView textView = (TextView)findViewById(R.id.otsikko);
         textView.setTextSize(40);
 
         com.example.matti.lippuvaraaja.view.SlidingTabLayout slidingTabLayout = (com.example.matti.lippuvaraaja.view.SlidingTabLayout) findViewById(R.id.tab);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
         // create a fragment list in order.
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new ElokuvaYllapitoFragment());

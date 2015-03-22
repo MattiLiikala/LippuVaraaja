@@ -13,12 +13,14 @@ public class MainActivity extends ActionBarActivity {
 
 
     public final static String EXTRA_MESSAGE = "com.matti.LippuVaraaja.MESSAGE";
-
+    public final static String TIEDOT = "Tiedot";
+    private YllapidonTiedot tiedot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tiedot = new YllapidonTiedot();
     }
 
 
@@ -50,10 +52,13 @@ public class MainActivity extends ActionBarActivity {
         String message = editText.getText().toString();
         if(message.equals("admin")) {
             intent = new Intent(this, AdminActivity.class);
+            intent.putExtra(TIEDOT, tiedot);
         }
         else {
             intent = new Intent(this, AsiakasActivity2.class);
             intent.putExtra(EXTRA_MESSAGE, message);
+            tiedot.getKayttajat().add(message);
+            intent.putExtra(TIEDOT, tiedot);
         }
         startActivity(intent);
     }

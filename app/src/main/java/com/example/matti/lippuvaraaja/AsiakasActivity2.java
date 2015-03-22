@@ -33,13 +33,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
    private String teatteri;
    private String paiva;
    private String nimi;
-    private Calendar c;
-
-    String elokuva;
-    String teatteri;
-    String paiva;
-    String nimi;
-    Calendar c;
+   private Calendar c;
 
 
         @Override
@@ -97,13 +91,8 @@ public class AsiakasActivity2 extends ActionBarActivity {
         return super.onCreateOptionsMenu(menu);
     }
     public void varaa(View view) {
-        Intent intent;
-        intent = new Intent(AsiakasActivity2.this, VarausActivity.class);
-        intent.putExtra(VARAAJA, nimi);
-        intent.putExtra(ELOKUVA, elokuva);
-        intent.putExtra(TEATTERI, teatteri);
-        intent.putExtra(PAIVA, paiva);
-        startActivity(intent);
+        NaytosDialogFragment dialogFragment = new NaytosDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(), "naytokset");
     }
 
     public void setElokuva(String elokuva){
@@ -123,7 +112,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public String getTeatteri(){
         return teatteri;
     }
-    public Long getPaiva(){return c.getTimeInMillis();}
+    public String getPaiva(){return paiva;}
 
     public String getNimi() {
         return nimi;

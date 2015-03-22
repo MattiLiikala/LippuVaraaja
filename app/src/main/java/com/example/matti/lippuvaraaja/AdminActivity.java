@@ -7,8 +7,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -16,6 +17,9 @@ import java.util.ArrayList;
 
 public class AdminActivity extends ActionBarActivity {
     private YllapidonTiedot tiedot;
+    private String elokuva;
+    private String teatteri;
+    private String paiva;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,20 @@ public class AdminActivity extends ActionBarActivity {
         slidingTabLayout.setViewPager(viewPager);
     }
 
+    public void tallennanaytos(View view){
+        if(teatteri != null && elokuva != null && paiva != null){
+            tiedot.getKaikkiNaytokset().add(new Naytos(elokuva, teatteri, 1, paiva, "15:00"));
+            Toast.makeText(AdminActivity.this,
+                    "Näytös lisätty",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(AdminActivity.this,
+                    "Valitse kaikki muuttujat",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,4 +87,23 @@ public class AdminActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void setElokuva(String elokuva){
+        this.elokuva = elokuva;
+
+    }
+    public void setTeatteri(String teatteri){
+        this.teatteri = teatteri;
+
+    }
+    public void setPaiva(String paiva){
+        this.paiva = paiva;
+    }
+    public String getElokuva(){
+        return elokuva;
+    }
+    public String getTeatteri(){
+        return teatteri;
+    }
+    public String getPaiva(){return paiva;}
 }

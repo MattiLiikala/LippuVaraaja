@@ -62,6 +62,7 @@ public class ElokuvaYllapitoFragment extends Fragment {
 
 
 
+                ((AdminActivity)getActivity()).setElokuva(itemValue);
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),

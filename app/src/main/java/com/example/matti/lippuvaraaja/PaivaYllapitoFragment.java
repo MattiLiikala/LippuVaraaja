@@ -35,7 +35,7 @@ public class PaivaYllapitoFragment extends Fragment {
 
                 Toast.makeText(getActivity().getApplicationContext(), date + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
 
-
+                ((AdminActivity)getActivity()).setPaiva(date + "/" + (month + 1) + "/" + year);
 
                 paiva = view.getDate();
             }

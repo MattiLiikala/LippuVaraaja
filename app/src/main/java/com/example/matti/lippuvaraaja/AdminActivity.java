@@ -32,7 +32,9 @@ public class AdminActivity extends ActionBarActivity {
         // create a fragment list in order.
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new ElokuvaYllapitoFragment());
-        fragments.add(new NaytosYllapitoFragment());
+        fragments.add(new TeatteriYllapitoFragment());
+        fragments.add(new PaivaYllapitoFragment());
+        //fragments.add(new NaytosYllapitoFragment());
         fragments.add(new KayttajaYllapitoFragment());
 
 
@@ -41,7 +43,7 @@ public class AdminActivity extends ActionBarActivity {
         FragmentManager manager = getSupportFragmentManager();
         Adapteri adapteri =new Adapteri(manager, fragments);
         viewPager.setAdapter(adapteri);
-        // slidingTabLayout.setDistributeEvenly(true);
+        slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(viewPager);
     }
 
@@ -50,7 +52,7 @@ public class AdminActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_admin, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

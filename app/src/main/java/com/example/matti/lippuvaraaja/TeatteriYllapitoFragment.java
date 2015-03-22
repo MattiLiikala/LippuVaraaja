@@ -13,7 +13,7 @@ import android.widget.Toast;
 /**
  * Created by Sami on 19.3.2015.
  */
-public class TeatteriFragment extends Fragment {
+public class TeatteriYllapitoFragment extends Fragment {
     ListView listView2;
 
     @Override
@@ -53,7 +53,7 @@ public class TeatteriFragment extends Fragment {
                 // ListView Clicked item value
                 String  itemValue    = (String) listView2.getItemAtPosition(position);
 
-                ((AsiakasActivity2)getActivity()).setTeatteri(itemValue);
+
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),

@@ -9,5 +9,8 @@
         android:layout_height="match_parent"
         android:id="@+id/calendarView"
         android:layout_gravity="center_horizontal"
+        android:selectedWeekBackgroundColor="@color/background_floating_material_light"
+        android:unfocusedMonthDateColor="@color/darkgreen"
+        android:selectedDateVerticalBar="@color/green"
         />
 </LinearLayout>

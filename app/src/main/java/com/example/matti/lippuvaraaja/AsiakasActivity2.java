@@ -36,6 +36,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
    private Calendar c;
 
 
+
         @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

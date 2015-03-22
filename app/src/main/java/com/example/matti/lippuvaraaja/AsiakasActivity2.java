@@ -31,8 +31,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
     public final static String KELLO = "com.matti.LippuVaraaja.KELLO";
-
-
+    public final static String SALI = "com.matti.Lippuvaraaja.SALI";
 
 
    private String elokuva;

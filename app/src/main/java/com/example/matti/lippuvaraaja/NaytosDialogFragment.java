@@ -16,6 +16,7 @@ public class NaytosDialogFragment extends DialogFragment {
     private CharSequence[] items;
     private ArrayList<Naytos> naytosLista;
     private String valittuKello = "";
+    private int valittuSali;
     private Boolean onNaytoksia = false;
 
     @Override
@@ -41,7 +42,7 @@ public class NaytosDialogFragment extends DialogFragment {
         builder.setTitle(R.string.dialog_title).setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 valittuKello = naytosLista.get(which).getKello();
-
+                valittuSali = naytosLista.get(which).getSali();
             }
         });
 
@@ -84,6 +85,7 @@ public class NaytosDialogFragment extends DialogFragment {
                     intent.putExtra(((AsiakasActivity2)getActivity()).TEATTERI, ((AsiakasActivity2)getActivity()).getTeatteri());
                     intent.putExtra(((AsiakasActivity2)getActivity()).PAIVA, ((AsiakasActivity2)getActivity()).getPaiva());
                     intent.putExtra(((AsiakasActivity2)getActivity()).KELLO, valittuKello);
+                    intent.putExtra(((AsiakasActivity2)getActivity()).SALI, valittuSali);
                     startActivity(intent);
                 }
                 //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.

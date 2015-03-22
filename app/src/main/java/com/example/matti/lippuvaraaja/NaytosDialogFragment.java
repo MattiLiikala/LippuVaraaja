@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,14 @@ public class NaytosDialogFragment extends DialogFragment {
                 onNaytoksia=true;
             }
         }
+        if(!onNaytoksia){
+            builder.setTitle(R.string.dialog_title).setMessage("Ei näytöksiä");
+            builder.setNeutralButton("Takaisin",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+        }
         items = new CharSequence[naytosLista.size()];
         for (int i=0; i<items.length; i++){
             items[i] = naytosLista.get(i).getPvm()+"  kello "+ naytosLista.get(i).getKello()+ "  Sali "+naytosLista.get(i).getSali();
@@ -51,23 +60,50 @@ public class NaytosDialogFragment extends DialogFragment {
 
 
 
-
-        builder.setPositiveButton(R.string.valitse_naytos, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-
-
-            }
-        })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
+        if(onNaytoksia) {
+            builder.setPositiveButton(R.string.valitse_naytos, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    if (!onNaytoksia) {
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "Ei näytöstä täällä tänään!", Toast.LENGTH_SHORT)
+                                .show();
                     }
-                });
+                    if (!naytosValittu) {
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "Valitse näytös", Toast.LENGTH_SHORT)
+                                .show();
+                    }
+
+
+                    if (onNaytoksia && naytosValittu) {
+
+                        Intent intent;
+                        intent = new Intent(getActivity(), VarausActivity.class);
+                        intent.putExtra(((AsiakasActivity2) getActivity()).VARAAJA, ((AsiakasActivity2) getActivity()).getNimi());
+                        intent.putExtra(((AsiakasActivity2) getActivity()).ELOKUVA, ((AsiakasActivity2) getActivity()).getElokuva());
+                        intent.putExtra(((AsiakasActivity2) getActivity()).TEATTERI, ((AsiakasActivity2) getActivity()).getTeatteri());
+                        intent.putExtra(((AsiakasActivity2) getActivity()).PAIVA, ((AsiakasActivity2) getActivity()).getPaiva());
+                        intent.putExtra(((AsiakasActivity2) getActivity()).KELLO, valittuKello);
+                        intent.putExtra(((AsiakasActivity2) getActivity()).SALI, valittuSali);
+                        startActivity(intent);
+                    }
+
+                }
+            })
+
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+        }
         // Create the AlertDialog object and return it
        final AlertDialog dialog = builder.create();
         dialog.show();
 
-        //Overriding the handler immediately after show is probably a better approach than OnShowListener as described below
+
+
+     /*
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -108,6 +144,7 @@ public class NaytosDialogFragment extends DialogFragment {
             }
         });
         */
+
         return dialog;
     }
 }

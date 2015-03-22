@@ -24,6 +24,16 @@ public class Naytos implements Serializable{
         this.kello = kello;
     }
 
+    public boolean equals(Naytos naytos) {
+        if(this.elokuva.equals(naytos.elokuva) && this.teatteri.equals(naytos.teatteri) && this.sali == naytos.sali &&
+                this.pvm.equals(naytos.pvm) && this.kello.equals(naytos.kello)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public String getKello() {
         return kello;
     }

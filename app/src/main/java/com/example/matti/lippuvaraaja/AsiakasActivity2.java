@@ -26,13 +26,16 @@ import java.util.Calendar;
 
 
 public class AsiakasActivity2 extends ActionBarActivity {
+    /*
     public final static String ELOKUVA = "com.matti.LippuVaraaja.ELOKUVA";
     public final static String PAIVA = "com.matti.LippuVaraaja.PAIVA";
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
-    public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
+
     public final static String KELLO = "com.matti.LippuVaraaja.KELLO";
     public final static String SALI = "com.matti.Lippuvaraaja.SALI";
-
+*/
+    public final static String VALITTUNAYTOS = "com.matti.Lippuvaraaja.VALITTUNAYTOS";
+    public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
 
    private String elokuva;
    private String teatteri;

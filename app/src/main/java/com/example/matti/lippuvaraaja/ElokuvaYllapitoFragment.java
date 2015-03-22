@@ -31,12 +31,7 @@ public class ElokuvaYllapitoFragment extends Fragment {
         // Defined Array values to show in ListView
         String[] values = new String[] { "Samin kosto",
                 "Samin kosto ja paluu",
-                "Matin uhka",
-                "Annan kirous",
-                "Santerin liekehtivä sikari",
-                "Digitin kilta",
-                "Sami V: MuumioSami",
-                "Santerin Päiväkirjat"
+                "Sami V: MuumioSami"
         };
 
         // Define a new Adapter

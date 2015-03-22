@@ -20,6 +20,8 @@ public class AdminActivity extends ActionBarActivity {
     private String elokuva;
     private String teatteri;
     private String paiva;
+    private String aika;
+    private int sali;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,8 @@ public class AdminActivity extends ActionBarActivity {
         fragments.add(new ElokuvaYllapitoFragment());
         fragments.add(new TeatteriYllapitoFragment());
         fragments.add(new PaivaYllapitoFragment());
-        //fragments.add(new NaytosYllapitoFragment());
-        fragments.add(new KayttajaYllapitoFragment());
+        fragments.add(new NaytosYllapitoFragment());
+        //fragments.add(new KayttajaYllapitoFragment());
 
 
         // use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles)
@@ -52,10 +54,10 @@ public class AdminActivity extends ActionBarActivity {
     }
 
     public void tallennanaytos(View view){
-        if(teatteri != null && elokuva != null && paiva != null){
-            tiedot.getKaikkiNaytokset().add(new Naytos(elokuva, teatteri, 1, paiva, "15:00"));
+        if(teatteri != null && elokuva != null && paiva != null && aika != null && sali > 0){
+            tiedot.getKaikkiNaytokset().add(new Naytos(elokuva, teatteri, 1, paiva, aika));
             Toast.makeText(AdminActivity.this,
-                    "Näytös lisätty",
+                    "Näytös lisätty:\n" + elokuva + " | " + teatteri + " " + sali + " " + paiva + " | " + aika,
                     Toast.LENGTH_SHORT).show();
         }
         else{
@@ -98,6 +100,21 @@ public class AdminActivity extends ActionBarActivity {
     }
     public void setPaiva(String paiva){
         this.paiva = paiva;
+    }
+
+    public void setAika(String aika) {
+        this.aika = aika;
+    }
+
+    public void setSali(int sali) {
+        this.sali = sali;
+    }
+    public int getSali(){
+        return sali;
+    }
+
+    public String getAika(){
+        return aika;
     }
     public String getElokuva(){
         return elokuva;

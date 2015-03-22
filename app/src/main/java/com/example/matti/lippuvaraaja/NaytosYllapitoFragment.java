@@ -94,10 +94,11 @@ public class NaytosYllapitoFragment extends Fragment {
                 ((AdminActivity)getActivity()).setSali(position + 1);
 
                 // Show Alert
+                /*
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Sali: " + (position + 1), Toast.LENGTH_SHORT)
                         .show();
-
+*/
             }
 
         });

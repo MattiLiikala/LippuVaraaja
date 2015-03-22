@@ -57,10 +57,11 @@ public class TeatteriYllapitoFragment extends Fragment {
 
 
                 // Show Alert
+                /*
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Teatteri: " + itemValue, Toast.LENGTH_SHORT)
                         .show();
-
+*/
             }
 
         });

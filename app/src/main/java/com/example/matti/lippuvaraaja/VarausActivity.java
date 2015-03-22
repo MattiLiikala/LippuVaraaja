@@ -32,7 +32,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         String paiva = intent.getStringExtra(AsiakasActivity2.PAIVA);
         String varaaja = intent.getStringExtra(AsiakasActivity2.VARAAJA);
 
-        int[] salikoko = {10, 10};
+        int[] salikoko = {8, 9};
 
         TextView nimi = (TextView)findViewById(R.id.nimi);
         nimi.setTextSize(10);

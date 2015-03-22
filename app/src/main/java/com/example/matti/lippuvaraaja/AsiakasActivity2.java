@@ -1,6 +1,7 @@
 package com.example.matti.lippuvaraaja;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public final static String PAIVA = "com.matti.LippuVaraaja.PAIVA";
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
+    public final static String KELLO = "com.matti.LippuVaraaja.KELLO";
 
 
 
@@ -35,19 +38,28 @@ public class AsiakasActivity2 extends ActionBarActivity {
    private String nimi;
    private Calendar c;
 
+    private YllapidonTiedot tiedot;
 
 
         @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int date = c.get(Calendar.DAY_OF_MONTH);
-            paiva = date + "/" + (month + 1) + "/" + year;
-        Intent intent = getIntent();
         setContentView(R.layout.activity_asiakas2);
+
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int date = c.get(Calendar.DAY_OF_MONTH);
+        paiva = date + "/" + (month + 1) + "/" + year;
+        Intent intent = getIntent();
+
         nimi = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        tiedot = (YllapidonTiedot) intent.getSerializableExtra(MainActivity.TIEDOT);
         TextView textView = (TextView)findViewById(R.id.nimikentta2);
         textView.setTextSize(10);
         textView.setText("Kirjautunut: "+ nimi+"!");
@@ -55,12 +67,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
         Toast.makeText(this, "Tervetuloa " + nimi + "!", Toast.LENGTH_SHORT)
                 .show();
 
-        if (savedInstanceState==null) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.viewpager,new ElokuvaFragment() );
-            transaction.commit();
-        }
 
         // Define SlidingTabLayout (shown at top)
         // and ViewPager (shown at bottom) in the layout.
@@ -94,6 +101,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public void varaa(View view) {
         NaytosDialogFragment dialogFragment = new NaytosDialogFragment();
         dialogFragment.show(getSupportFragmentManager(), "naytokset");
+
     }
 
     public void setElokuva(String elokuva){
@@ -121,5 +129,13 @@ public class AsiakasActivity2 extends ActionBarActivity {
 
     public void setNimi(String nimi) {
         this.nimi = nimi;
+    }
+
+    public YllapidonTiedot getTiedot() {
+        return tiedot;
+    }
+
+    public void setTiedot(YllapidonTiedot tiedot) {
+        this.tiedot = tiedot;
     }
 }

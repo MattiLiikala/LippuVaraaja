@@ -31,6 +31,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         String teatteri = intent.getStringExtra(AsiakasActivity2.TEATTERI);
         String paiva = intent.getStringExtra(AsiakasActivity2.PAIVA);
         String varaaja = intent.getStringExtra(AsiakasActivity2.VARAAJA);
+        String kello = intent.getStringExtra(AsiakasActivity2.KELLO);
 
         int[] salikoko = {8, 9};
 
@@ -39,7 +40,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         nimi.setText("Kirjautunut: "+ varaaja+"!");
 
         TextView textView = (TextView)findViewById(R.id.viesti);
-        textView.setText("" + elokuva + " | " + paiva + "\n" + teatteri);
+        textView.setText("" + elokuva + " | " + paiva + "\n" + teatteri + " | kello " + kello);
 
         napit = (GridLayout)findViewById(R.id.napit);
         napit.setRowCount(salikoko[0]);

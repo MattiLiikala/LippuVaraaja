@@ -16,11 +16,16 @@ import java.util.ArrayList;
 
 public class AdminActivity extends ActionBarActivity {
     private YllapidonTiedot tiedot;
-
+    private ArrayList<Fragment> fragments;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
         tiedot = (YllapidonTiedot) getIntent().getSerializableExtra(MainActivity.TIEDOT);
         TextView textView = (TextView)findViewById(R.id.otsikko);
         textView.setTextSize(40);
@@ -30,7 +35,7 @@ public class AdminActivity extends ActionBarActivity {
 
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
         // create a fragment list in order.
-        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments = new ArrayList<>();
         fragments.add(new ElokuvaYllapitoFragment());
         fragments.add(new TeatteriYllapitoFragment());
         fragments.add(new PaivaYllapitoFragment());

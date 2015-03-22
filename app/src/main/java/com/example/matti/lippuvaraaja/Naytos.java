@@ -1,5 +1,6 @@
 package com.example.matti.lippuvaraaja;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by Sami on 21.3.2015.
  */
-public class Naytos {
+public class Naytos implements Serializable{
     private String elokuva;
     private String teatteri;
     private int sali;

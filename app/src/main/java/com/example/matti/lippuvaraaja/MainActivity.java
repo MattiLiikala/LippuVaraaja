@@ -29,10 +29,7 @@ public class MainActivity extends ActionBarActivity {
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "20:00"));
     }
 
-    public void onStart(){
-        super.onStart();
 
-    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

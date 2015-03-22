@@ -17,6 +17,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
 
     GridLayout napit;
     Penkki[] penkit;
+    int[] salikoko;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +27,23 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         Intent intent = getIntent();
 
 
-
+        salikoko = new int[2];
 
         String elokuva = intent.getStringExtra(AsiakasActivity2.ELOKUVA);
         String teatteri = intent.getStringExtra(AsiakasActivity2.TEATTERI);
         String paiva = intent.getStringExtra(AsiakasActivity2.PAIVA);
         String varaaja = intent.getStringExtra(AsiakasActivity2.VARAAJA);
         String kello = intent.getStringExtra(AsiakasActivity2.KELLO);
+        int sali = intent.getIntExtra(AsiakasActivity2.SALI, 1);
+        if(sali == 1){
+            salikoko[0] = 9;
+            salikoko[1] = 9;
+        }
+        else if(sali == 2){
+            salikoko[0] = 7;
+            salikoko[1] = 8;
+        }
 
-        int[] salikoko = {8, 9};
 
         TextView nimi = (TextView)findViewById(R.id.nimi);
         nimi.setTextSize(10);

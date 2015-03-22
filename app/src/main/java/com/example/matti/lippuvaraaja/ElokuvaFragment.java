@@ -1,7 +1,6 @@
 package com.example.matti.lippuvaraaja;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +21,7 @@ public class ElokuvaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View elokuvaFragmentView = inflater.inflate(R.layout.fragment_elokuva, container, false);
+       View elokuvaFragmentView = inflater.inflate(R.layout.fragment_elokuva_teatteri, container, false);
 
         /* Get ListView object from xml */
         listView = (ListView) elokuvaFragmentView.findViewById(android.R.id.list);

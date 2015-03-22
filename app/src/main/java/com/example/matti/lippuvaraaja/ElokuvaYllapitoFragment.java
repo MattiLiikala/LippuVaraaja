@@ -22,7 +22,7 @@ public class ElokuvaYllapitoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View elokuvaFragmentView = inflater.inflate(R.layout.fragment_elokuvayllapito, container, false);
+        View elokuvaFragmentView = inflater.inflate(R.layout.fragment_elokuva_teatteri, container, false);
 
         /* Get ListView object from xml */
         listView = (ListView) elokuvaFragmentView.findViewById(android.R.id.list);
@@ -66,7 +66,7 @@ public class ElokuvaYllapitoFragment extends Fragment {
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
 
-                ((AsiakasActivity2)getActivity()).setElokuva(itemValue);
+
 
                 // Show Alert
                 Toast.makeText(getActivity().getApplicationContext(),

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.matti.lippuvaraaja.view.SlidingTabLayout;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class AsiakasActivity2 extends ActionBarActivity {
@@ -31,10 +32,16 @@ public class AsiakasActivity2 extends ActionBarActivity {
     String teatteri;
     String paiva;
     String nimi;
+    Calendar c;
 
         @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int date = c.get(Calendar.DAY_OF_MONTH);
+            paiva = date + "/" + (month + 1) + "/" + year;
         Intent intent = getIntent();
         setContentView(R.layout.activity_asiakas2);
         nimi = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
@@ -63,7 +70,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
         fragments.add(new ElokuvaFragment());
         fragments.add(new TeatteriFragment());
         fragments.add(new PaivaFragment());
-        fragments.add(new NaytosFragment());
+        //fragments.add(new NaytosFragment());
 
 
         // use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles)
@@ -108,6 +115,6 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public String getTeatteri(){
         return teatteri;
     }
-    public String getPaiva(){return paiva;}
+    public Long getPaiva(){return c.getTimeInMillis();}
 
 }

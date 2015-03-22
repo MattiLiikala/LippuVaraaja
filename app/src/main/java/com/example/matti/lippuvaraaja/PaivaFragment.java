@@ -30,6 +30,11 @@ public class PaivaFragment extends Fragment {
         if(paiva != null){
             calView.setDate(paiva);
         }
+        else{
+            calView.setDate(((AsiakasActivity2)getActivity()).getPaiva());
+        }
+
+
         calView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override

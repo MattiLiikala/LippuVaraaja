@@ -17,6 +17,7 @@ public class NaytosDialogFragment extends DialogFragment {
     private ArrayList<Naytos> naytosLista;
     private String valittuKello = "";
     private Boolean onNaytoksia = false;
+    private Boolean naytosValittu = false;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class NaytosDialogFragment extends DialogFragment {
         builder.setTitle(R.string.dialog_title).setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 valittuKello = naytosLista.get(which).getKello();
-
+                naytosValittu = true;
             }
         });
 
@@ -72,11 +73,12 @@ public class NaytosDialogFragment extends DialogFragment {
             {
 
                 //Do stuff, possibly set wantToCloseDialog to true then...
-                if(!onNaytoksia)
+                if(!onNaytoksia || !naytosValittu)
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setClickable(false);
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.LTGRAY);
 
-                if(onNaytoksia){
+                if(onNaytoksia && naytosValittu){
+
                     Intent intent;
                     intent = new Intent(getActivity(), VarausActivity.class);
                     intent.putExtra(((AsiakasActivity2)getActivity()).VARAAJA,  ((AsiakasActivity2)getActivity()).getNimi());

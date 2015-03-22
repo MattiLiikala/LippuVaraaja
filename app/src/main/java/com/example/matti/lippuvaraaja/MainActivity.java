@@ -7,29 +7,46 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
 
     public final static String EXTRA_MESSAGE = "com.matti.LippuVaraaja.MESSAGE";
-    public final static String TIEDOT = "Tiedot";
+    public final static String TIEDOT = "com.matti.Lippuvaraaja.TIEDOT";
+    private static final int NAYTOS_TALLENNUS = 1;
     private YllapidonTiedot tiedot;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
-
-    public void onStart(){
-        super.onStart();
         tiedot = new YllapidonTiedot();
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "20:00"));
     }
 
+    public void onStart(){
+        super.onStart();
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch (requestCode) {
+            case NAYTOS_TALLENNUS:
+                if (resultCode == RESULT_OK) {
+                    Naytos naytos = (Naytos)data.getSerializableExtra("Valittu_naytos");
+                    tiedot.getKaikkiNaytokset().add(naytos);
+                    Toast.makeText(this, "Näytös lisätty:\n" + naytos.getElokuva() + " | " + naytos.getTeatteri() + " " + naytos.getSali()
+                            + " " + naytos.getPvm() + " | " + naytos.getKello(), Toast.LENGTH_LONG).show();
+                    break;
+                }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,14 +76,17 @@ public class MainActivity extends ActionBarActivity {
         String message = editText.getText().toString();
         if(message.equals("admin")) {
             intent = new Intent(this, AdminActivity.class);
-            intent.putExtra(TIEDOT, tiedot);
+            intent.setClass(MainActivity.this,AdminActivity.class);
+            startActivityForResult(intent, NAYTOS_TALLENNUS);
+            //intent.putExtra(TIEDOT, tiedot);
         }
         else {
             intent = new Intent(this, AsiakasActivity2.class);
             intent.putExtra(EXTRA_MESSAGE, message);
             tiedot.getKayttajat().add(message);
             intent.putExtra(TIEDOT, tiedot);
+            startActivity(intent);
         }
-        startActivity(intent);
+
     }
 }

@@ -1,7 +1,9 @@
 package com.example.matti.lippuvaraaja;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 
 
 public class AdminActivity extends ActionBarActivity {
-    private YllapidonTiedot tiedot;
+    private Naytos naytos;
     private ArrayList<Fragment> fragments;
     private String elokuva;
     private String teatteri;
@@ -32,14 +34,14 @@ public class AdminActivity extends ActionBarActivity {
     @Override
     public void onStart(){
         super.onStart();
-        tiedot = (YllapidonTiedot) getIntent().getSerializableExtra(MainActivity.TIEDOT);
+        //tiedot = (YllapidonTiedot) getIntent().getSerializableExtra(MainActivity.TIEDOT);
         TextView textView = (TextView)findViewById(R.id.otsikko);
         textView.setTextSize(40);
 
         com.example.matti.lippuvaraaja.view.SlidingTabLayout slidingTabLayout = (com.example.matti.lippuvaraaja.view.SlidingTabLayout) findViewById(R.id.tab);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
+        //tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
         // create a fragment list in order.
         fragments = new ArrayList<>();
         fragments.add(new ElokuvaYllapitoFragment());
@@ -60,10 +62,18 @@ public class AdminActivity extends ActionBarActivity {
 
     public void tallennanaytos(View view){
         if(teatteri != null && elokuva != null && paiva != null && aika != null && sali > 0){
-            tiedot.getKaikkiNaytokset().add(new Naytos(elokuva, teatteri, 1, paiva, aika));
-            Toast.makeText(AdminActivity.this,
-                    "Näytös lisätty:\n" + elokuva + " | " + teatteri + " " + sali + " " + paiva + " | " + aika,
-                    Toast.LENGTH_SHORT).show();
+
+
+            naytos = new Naytos(elokuva, teatteri, sali, paiva, aika);
+
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("Valittu_naytos", naytos);
+            // Activity finished ok, return the data
+            setResult(RESULT_OK, returnIntent);
+
+            finish();
+
+
         }
         else{
             Toast.makeText(AdminActivity.this,
@@ -85,14 +95,17 @@ public class AdminActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent intent = NavUtils.getParentActivityIntent(this);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                NavUtils.navigateUpTo(this, intent);
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
+
+
     }
 
     public void setElokuva(String elokuva){

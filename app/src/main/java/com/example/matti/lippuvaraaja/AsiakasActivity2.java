@@ -8,10 +8,12 @@ import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public final static String TEATTERI = "com.matti.LippuVaraaja.TEATTERI";
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
     public final static String KELLO = "com.matti.LippuVaraaja.KELLO";
+
 
 
 
@@ -97,6 +100,23 @@ public class AsiakasActivity2 extends ActionBarActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_asiakas2, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent intent = NavUtils.getParentActivityIntent(this);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                NavUtils.navigateUpTo(this, intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+
     }
     public void varaa(View view) {
         NaytosDialogFragment dialogFragment = new NaytosDialogFragment();

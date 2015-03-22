@@ -22,5 +22,9 @@
         ]]>
     </string>
     <string name="title_activity_varaus">VarausActivity</string>
+    <string name="dialog_message">\"\"</string>
+    <string name="dialog_title">Tulevat näytökset</string>
+    <string name="valitse_naytos">Valitse näytös</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

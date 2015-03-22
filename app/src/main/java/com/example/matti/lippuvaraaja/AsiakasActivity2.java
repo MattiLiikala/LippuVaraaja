@@ -27,10 +27,10 @@ public class AsiakasActivity2 extends ActionBarActivity {
     public final static String VARAAJA = "com.matti.LippuVaraaja.VARAAJA";
 
 
-    String elokuva;
-    String teatteri;
-    String paiva;
-    String nimi;
+   private String elokuva;
+   private String teatteri;
+   private String paiva;
+   private String nimi;
 
         @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ public class AsiakasActivity2 extends ActionBarActivity {
 
         Toast.makeText(this, "Tervetuloa " + nimi + "!", Toast.LENGTH_SHORT)
                 .show();
-/*
+
         if (savedInstanceState==null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.sample_content_fragment, fragment);
+            transaction.replace(R.id.viewpager,new ElokuvaFragment() );
             transaction.commit();
         }
-*/
+
         // Define SlidingTabLayout (shown at top)
         // and ViewPager (shown at bottom) in the layout.
         // Get their instances.
@@ -110,4 +110,11 @@ public class AsiakasActivity2 extends ActionBarActivity {
     }
     public String getPaiva(){return paiva;}
 
+    public String getNimi() {
+        return nimi;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
 }

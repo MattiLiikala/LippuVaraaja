@@ -80,7 +80,9 @@ public class ListaAdapteri extends BaseAdapter {
 
         return arg1;
     }
-
+    public void tyhjennaLista(){
+        naytosLista.clear();
+    }
     public void lisaaNaytosListaan(Naytos lisattava){
         naytosLista.add(lisattava);
         /*

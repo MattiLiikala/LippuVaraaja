@@ -33,13 +33,8 @@ public class AsiakasActivity2 extends ActionBarActivity {
    private String teatteri;
    private String paiva;
    private String nimi;
-    private Calendar c;
+   private Calendar c;
 
-    String elokuva;
-    String teatteri;
-    String paiva;
-    String nimi;
-    Calendar c;
 
 
         @Override

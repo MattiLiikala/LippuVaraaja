@@ -11,7 +11,7 @@ import android.widget.Toast;
 /**
  * Created by Sami on 21.3.2015.
  */
-public class PaivaFragment extends Fragment {
+public class PaivaYllapitoFragment extends Fragment {
 
     Long paiva;
 
@@ -35,7 +35,6 @@ public class PaivaFragment extends Fragment {
 
                 Toast.makeText(getActivity().getApplicationContext(), date + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
 
-                ((AsiakasActivity2)getActivity()).setPaiva(date + "/" + (month + 1) + "/" + year);
 
 
                 paiva = view.getDate();

@@ -5,7 +5,7 @@
     android:orientation="vertical"
     tools:context=".AsiakasActivity2"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-    android:gravity="right"
+    android:gravity="end"
     android:weightSum="1">
 
 
@@ -19,8 +19,8 @@
         android:paddingTop="@dimen/margin_tiny"
         android:paddingBottom="@dimen/margin_tiny"
         android:text=""
-        android:layout_gravity="right"
-        android:gravity="right" />
+        android:layout_gravity="end"
+        android:gravity="end" />
 
     <com.example.matti.lippuvaraaja.view.SlidingTabLayout
         android:id="@+id/tab"
@@ -38,7 +38,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Siirry varaukseen"
+        android:text="Valitse näytös"
         android:id="@+id/button2"
         android:onClick="varaa"
         android:layout_gravity="center_horizontal"

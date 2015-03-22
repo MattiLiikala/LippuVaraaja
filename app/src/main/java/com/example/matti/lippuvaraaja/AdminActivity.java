@@ -7,9 +7,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.matti.lippuvaraaja.view.*;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,11 @@ import java.util.ArrayList;
 public class AdminActivity extends ActionBarActivity {
     private YllapidonTiedot tiedot;
     private ArrayList<Fragment> fragments;
+    private String elokuva;
+    private String teatteri;
+    private String paiva;
+    private String aika;
+    private int sali;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +45,8 @@ public class AdminActivity extends ActionBarActivity {
         fragments.add(new ElokuvaYllapitoFragment());
         fragments.add(new TeatteriYllapitoFragment());
         fragments.add(new PaivaYllapitoFragment());
-        //fragments.add(new NaytosYllapitoFragment());
-        fragments.add(new KayttajaYllapitoFragment());
+        fragments.add(new NaytosYllapitoFragment());
+        //fragments.add(new KayttajaYllapitoFragment());
 
 
         // use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles)
@@ -50,6 +56,20 @@ public class AdminActivity extends ActionBarActivity {
         viewPager.setAdapter(adapteri);
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(viewPager);
+    }
+
+    public void tallennanaytos(View view){
+        if(teatteri != null && elokuva != null && paiva != null && aika != null && sali > 0){
+            tiedot.getKaikkiNaytokset().add(new Naytos(elokuva, teatteri, 1, paiva, aika));
+            Toast.makeText(AdminActivity.this,
+                    "Näytös lisätty:\n" + elokuva + " | " + teatteri + " " + sali + " " + paiva + " | " + aika,
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(AdminActivity.this,
+                    "Valitse kaikki muuttujat",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -74,4 +94,38 @@ public class AdminActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void setElokuva(String elokuva){
+        this.elokuva = elokuva;
+
+    }
+    public void setTeatteri(String teatteri){
+        this.teatteri = teatteri;
+
+    }
+    public void setPaiva(String paiva){
+        this.paiva = paiva;
+    }
+
+    public void setAika(String aika) {
+        this.aika = aika;
+    }
+
+    public void setSali(int sali) {
+        this.sali = sali;
+    }
+    public int getSali(){
+        return sali;
+    }
+
+    public String getAika(){
+        return aika;
+    }
+    public String getElokuva(){
+        return elokuva;
+    }
+    public String getTeatteri(){
+        return teatteri;
+    }
+    public String getPaiva(){return paiva;}
 }

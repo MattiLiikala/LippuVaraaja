@@ -53,6 +53,7 @@ public class TeatteriYllapitoFragment extends Fragment {
                 // ListView Clicked item value
                 String  itemValue    = (String) listView2.getItemAtPosition(position);
 
+                ((AdminActivity)getActivity()).setTeatteri(itemValue);
 
 
                 // Show Alert

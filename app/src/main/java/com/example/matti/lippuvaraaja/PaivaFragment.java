@@ -16,6 +16,7 @@ public class PaivaFragment extends Fragment {
     Long paiva;
 
     CalendarView calView;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View paivaFragmentView = inflater.inflate(R.layout.fragment_paiva, container, false);

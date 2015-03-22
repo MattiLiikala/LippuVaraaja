@@ -29,25 +29,25 @@ public class NaytosDialogFragment extends DialogFragment {
 
 
         naytosLista = new ArrayList<>();
-        for(Naytos n : ((AsiakasActivity2)getActivity()).getTiedot().getKaikkiNaytokset()){
-            if (n.getElokuva().equals(((AsiakasActivity2)getActivity()).getElokuva())&&
-                    n.getTeatteri().equals(((AsiakasActivity2)getActivity()).getTeatteri())&&
-                    n.getPvm().equals(((AsiakasActivity2)getActivity()).getPaiva())){
+        for (Naytos n : ((AsiakasActivity2) getActivity()).getTiedot().getKaikkiNaytokset()) {
+            if (n.getElokuva().equals(((AsiakasActivity2) getActivity()).getElokuva()) &&
+                    n.getTeatteri().equals(((AsiakasActivity2) getActivity()).getTeatteri()) &&
+                    n.getPvm().equals(((AsiakasActivity2) getActivity()).getPaiva())) {
                 naytosLista.add(n);
-                onNaytoksia=true;
+                onNaytoksia = true;
             }
         }
-        if(!onNaytoksia){
+        if (!onNaytoksia) {
             builder.setTitle(R.string.dialog_title).setMessage("Ei näytöksiä");
-            builder.setNeutralButton("Takaisin",new DialogInterface.OnClickListener() {
+            builder.setNeutralButton("Takaisin", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
                 }
             });
         }
         items = new CharSequence[naytosLista.size()];
-        for (int i=0; i<items.length; i++){
-            items[i] = naytosLista.get(i).getPvm()+"  kello "+ naytosLista.get(i).getKello()+ "  Sali "+naytosLista.get(i).getSali();
+        for (int i = 0; i < items.length; i++) {
+            items[i] = naytosLista.get(i).getPvm() + "  kello " + naytosLista.get(i).getKello() + "  Sali " + naytosLista.get(i).getSali();
         }
 
         builder.setTitle(R.string.dialog_title).setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
@@ -60,9 +60,7 @@ public class NaytosDialogFragment extends DialogFragment {
         });
 
 
-
-
-        if(onNaytoksia) {
+        if (onNaytoksia) {
             builder.setPositiveButton(R.string.valitse_naytos, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (!onNaytoksia) {
@@ -82,11 +80,7 @@ public class NaytosDialogFragment extends DialogFragment {
                         Intent intent;
                         intent = new Intent(getActivity(), VarausActivity.class);
                         intent.putExtra(((AsiakasActivity2) getActivity()).VARAAJA, ((AsiakasActivity2) getActivity()).getNimi());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).ELOKUVA, ((AsiakasActivity2) getActivity()).getElokuva());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).TEATTERI, ((AsiakasActivity2) getActivity()).getTeatteri());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).PAIVA, ((AsiakasActivity2) getActivity()).getPaiva());
-                        intent.putExtra(((AsiakasActivity2) getActivity()).KELLO, valittuKello);
-                        intent.putExtra(((AsiakasActivity2) getActivity()).SALI, valittuSali);
+                        intent.putExtra(((AsiakasActivity2) getActivity()).VALITTUNAYTOS, naytosLista.get(listanNaytos));
                         startActivity(intent);
                     }
 
@@ -100,56 +94,9 @@ public class NaytosDialogFragment extends DialogFragment {
                     });
         }
         // Create the AlertDialog object and return it
-       final AlertDialog dialog = builder.create();
+        final AlertDialog dialog = builder.create();
         dialog.show();
 
-
-
-     /*
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-                //Do stuff, possibly set wantToCloseDialog to true then...
-                if(!onNaytoksia || !naytosValittu)
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setClickable(false);
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.LTGRAY);
-
-                if(onNaytoksia && naytosValittu){
-
-                    Intent intent;
-                    intent = new Intent(getActivity(), VarausActivity.class);
-
-                    intent.putExtra(((AsiakasActivity2)getActivity()).VARAAJA,  ((AsiakasActivity2)getActivity()).getNimi());
-                    /*
-                    intent.putExtra(((AsiakasActivity2)getActivity()).ELOKUVA, ((AsiakasActivity2)getActivity()).getElokuva());
-                    intent.putExtra(((AsiakasActivity2)getActivity()).TEATTERI, ((AsiakasActivity2)getActivity()).getTeatteri());
-                    intent.putExtra(((AsiakasActivity2)getActivity()).PAIVA, ((AsiakasActivity2)getActivity()).getPaiva());
-                    intent.putExtra(((AsiakasActivity2)getActivity()).KELLO, valittuKello);
-                    intent.putExtra(((AsiakasActivity2)getActivity()).SALI, valittuSali);
-                    */
-                    intent.putExtra(((AsiakasActivity2)getActivity()).VALITTUNAYTOS, naytosLista.get(listanNaytos));
-                    startActivity(intent);
-                }
-                //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
-            }
-        });
-/*
-        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Boolean wantToCloseDialog = true;
-                //Do stuff, possibly set wantToCloseDialog to true then...
-                if(wantToCloseDialog)
-                    dialog.dismiss();
-                //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
-            }
-        });
-        */
 
         return dialog;
     }

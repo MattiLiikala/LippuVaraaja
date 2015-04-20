@@ -1,5 +1,7 @@
 package com.example.matti.lippuvaraaja;
 
+
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +29,7 @@ public class AdminActivity extends ActionBarActivity {
     private String paiva;
     private String aika;
     private int sali;
+    com.example.matti.lippuvaraaja.view.SlidingTabLayout slidingTabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +43,11 @@ public class AdminActivity extends ActionBarActivity {
         TextView textView = (TextView)findViewById(R.id.otsikko);
         textView.setTextSize(40);
 
-        com.example.matti.lippuvaraaja.view.SlidingTabLayout slidingTabLayout = (com.example.matti.lippuvaraaja.view.SlidingTabLayout) findViewById(R.id.tab);
+
+        slidingTabLayout = (com.example.matti.lippuvaraaja.view.SlidingTabLayout) findViewById(R.id.tab);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        //tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
+
         // create a fragment list in order.
         fragments = new ArrayList<>();
         fragments.add(new ElokuvaYllapitoFragment());
@@ -58,6 +64,7 @@ public class AdminActivity extends ActionBarActivity {
         viewPager.setAdapter(adapteri);
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(viewPager);
+
     }
 
     public void tallennanaytos(View view){
@@ -82,6 +89,11 @@ public class AdminActivity extends ActionBarActivity {
         }
     }
 
+    //Fragmenttisetti turhaa,uusi activity vaan tai dialogi
+    public void muokkaanaytoksia(MenuItem item){
+        Intent intent = new Intent(this, NaytosMuokkausActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

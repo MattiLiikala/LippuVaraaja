@@ -1,5 +1,6 @@
 package com.example.matti.lippuvaraaja;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -18,11 +20,13 @@ public class MainActivity extends ActionBarActivity {
     private static final int NAYTOS_TALLENNUS = 1;
     private YllapidonTiedot tiedot;
 
+    ImageButton helpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        addListenerOnButton();
 
         tiedot = new YllapidonTiedot();
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
@@ -87,6 +91,39 @@ public class MainActivity extends ActionBarActivity {
             intent.putExtra(TIEDOT, tiedot);
             startActivity(intent);
         }
+
+    }
+
+    public void naytaOhjeDialogi(MenuItem item){
+        AlertDialog ohjeDialogi = new AlertDialog.Builder(this).create();
+        ohjeDialogi.setTitle("Näin käytät LippuVaraajaa:");
+        ohjeDialogi.setMessage(this.getString(R.string.ohje_message));
+        ohjeDialogi.setCanceledOnTouchOutside(true);
+        ohjeDialogi.show();
+    }
+
+    public void naytaOhjeDialogi(){
+        AlertDialog ohjeDialogi = new AlertDialog.Builder(this).create();
+        ohjeDialogi.setTitle("Näin käytät LippuVaraajaa:");
+        ohjeDialogi.setMessage(this.getString(R.string.ohje_message));
+        ohjeDialogi.setCanceledOnTouchOutside(true);
+        ohjeDialogi.show();
+    }
+
+    public void addListenerOnButton() {
+
+        helpButton = (ImageButton) findViewById(R.id.helpButton);
+
+        helpButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+              naytaOhjeDialogi();
+
+            }
+
+        });
 
     }
 }

@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="Otsikko">Lippuvarauspalvelu!</string>
     <string name="title_activity_asiakas2">Näytöksen valinta</string>
-    <string name="title_activity_admin">Näytösten hallinta</string>
+    <string name="title_activity_admin">Ylläpito</string>
     <string name="tab_teatteri">Teatteri</string>
     <string name="tab_elokuvat">Elokuvat</string>
     <string name="tab_paiva">Päivä</string>
@@ -21,10 +21,22 @@
         ]]>
     </string>
     <string name="title_activity_varaus">Varauksen tallennus</string>
+    <string name="title_activity_naytosmuokkaus">Poista/muokkaa näytöksiä</string>
     <string name="dialog_message">\"\"</string>
     <string name="dialog_title">Tulevat näytökset</string>
     <string name="valitse_naytos">Valitse näytös</string>
     <string name="cancel">Cancel</string>
     <string name="valkokangas">Valkokangas</string>
+    <string name="muokkaa_naytoksia">Muokkaa näytöksiä</string>
+    <string name="otsikko_naytosmuokkaus">Valitse elokuva</string>
+    <string name="ohje">Ohje</string>
+<string name="ohje_message">"
+1. Kirjaudu sisään omalla nimelläsi \n
+2. Valitse haluamasi elokuva \n
+3. Valitse teatteri, jossa haluat sen katsoa \n
+4. Valitse päivä, jolloin haluat mennä elokuviin \n
+5. Paina ruudun alareunassa olevaa nappia 'Valitse näytös', ja pääset valitsemaan tarjolla olevista näytöksistä mieluisimman \n
+6. Valitse salista haluamasi paikat \n
+7. Paina 'Tallenna varaus' varataksesi paikkasi"</string>
 
 </resources>

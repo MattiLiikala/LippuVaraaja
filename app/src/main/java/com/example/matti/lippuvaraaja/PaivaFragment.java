@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 /**
  * Created by Sami on 21.3.2015.
  */

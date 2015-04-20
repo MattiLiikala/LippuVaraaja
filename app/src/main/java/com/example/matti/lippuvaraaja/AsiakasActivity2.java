@@ -67,7 +67,7 @@ public class AsiakasActivity2 extends ActionBarActivity {
         tiedot = (YllapidonTiedot) intent.getSerializableExtra(MainActivity.TIEDOT);
         TextView textView = (TextView)findViewById(R.id.nimikentta2);
         textView.setTextSize(10);
-        textView.setText("Kirjautunut: "+ nimi+"!");
+        textView.setText("Kirjautunut: "+ nimi);
 
         Toast.makeText(this, "Tervetuloa " + nimi + "!", Toast.LENGTH_SHORT)
                 .show();

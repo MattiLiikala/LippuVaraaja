@@ -44,6 +44,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.matti.lippuvaraaja.AsiakasActivity2" />
         </activity>
+        <activity
+            android:name=".NaytosMuokkausActivity"
+            android:label="@string/title_activity_naytosmuokkaus"
+            android:parentActivityName=".AdminActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.matti.lippuvaraaja.AdminActivity" />
+        </activity>
     </application>
 
 </manifest>

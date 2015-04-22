@@ -71,7 +71,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
 
                 Penkki penkki = new Penkki(this, xPos, yPos);
                 penkki.setOnToggledListener(this);
-                if(3 < yPos && yPos < 6 && 4 < xPos && xPos < 7){
+                if(3 < yPos && yPos < 6 && 2 < xPos && xPos < 7){
                     penkki.setTaken(true);
                 }
                 penkit[yPos*numOfCol + xPos] = penkki;
@@ -154,15 +154,21 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
 
     public void tallenna(View view){
         String varatutPaikat = "";
-
+        int penkkienMaara = 0;
         for(int i = 0;i<penkit.length;i++) {
             if (penkit[i].touchOn && !penkit[i].taken) {
                 varatutPaikat = varatutPaikat + penkit[i].getIdY() + ":" + penkit[i].getIdX() + " ";
+                penkkienMaara++;
             }
         }
-        if(!varatutPaikat.equals(null) && !varatutPaikat.equals("")) {
+        if(!varatutPaikat.equals(null) && !varatutPaikat.equals("") && penkkienMaara < 9) {
             Toast.makeText(VarausActivity.this,
                     "Varatut paikat:\n" + varatutPaikat,
+                    Toast.LENGTH_SHORT).show();
+        }
+        else if(penkkienMaara > 8){
+            Toast.makeText(VarausActivity.this,
+                    "Voit varata korkeintaan 8 paikkaa",
                     Toast.LENGTH_SHORT).show();
         }
     }

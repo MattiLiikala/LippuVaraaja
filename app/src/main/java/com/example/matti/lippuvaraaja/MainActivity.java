@@ -30,7 +30,20 @@ public class MainActivity extends ActionBarActivity {
 
         tiedot = new YllapidonTiedot();
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 2, "22/4/2015", "22:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto ja paluu", "Paimio International", 2, "22/4/2015", "16:00"));
         tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "22/4/2015", "20:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto ja paluu", "Paimio International", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Sami V: MuumioSami", "Paimio International", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Sami V: MuumioSami", "Paimio International", 2, "22/4/2015", "20:00"));
+
+
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto ja paluu", "Kaarina RockCity", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto ja paluu", "Kaarina RockCity", 2, "22/4/2015", "20:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Kaarina RockCity", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Kaarina RockCity", 2, "22/4/2015", "20:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Sami V: MuumioSami", "Kaarina RockCity", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Sami V: MuumioSami", "Kaarina RockCity", 2, "22/4/2015", "20:00"));
     }
 
 

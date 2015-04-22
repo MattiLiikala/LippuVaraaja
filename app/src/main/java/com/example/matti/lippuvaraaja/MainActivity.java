@@ -29,8 +29,8 @@ public class MainActivity extends ActionBarActivity {
         addListenerOnButton();
 
         tiedot = new YllapidonTiedot();
-        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "16:00"));
-        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "27/3/2015", "20:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "22/4/2015", "16:00"));
+        tiedot.getKaikkiNaytokset().add(new Naytos("Samin kosto", "Paimio International", 1, "22/4/2015", "20:00"));
     }
 
 

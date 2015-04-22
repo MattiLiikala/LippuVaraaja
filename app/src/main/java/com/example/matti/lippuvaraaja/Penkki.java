@@ -16,6 +16,7 @@ public class Penkki extends View {
     }
 
     boolean touchOn;
+    boolean taken;
     boolean mDownTouch = false;
     private OnToggledListener toggledListener;
     int idX = 0; //default
@@ -45,6 +46,7 @@ public class Penkki extends View {
 
     private void init() {
         touchOn = false;
+        taken = false;
     }
 
     @Override
@@ -55,10 +57,15 @@ public class Penkki extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (touchOn) {
+        if(taken){
             canvas.drawColor(Color.RED);
-        } else {
-            canvas.drawColor(Color.GRAY);
+        }
+        else {
+            if (touchOn) {
+                canvas.drawColor(Color.GREEN);
+            } else {
+                canvas.drawColor(Color.GRAY);
+            }
         }
     }
 
@@ -105,6 +112,10 @@ public class Penkki extends View {
 
     public int getIdY(){
         return idY;
+    }
+
+    public void setTaken(boolean taken){
+        this.taken = taken;
     }
 
 }

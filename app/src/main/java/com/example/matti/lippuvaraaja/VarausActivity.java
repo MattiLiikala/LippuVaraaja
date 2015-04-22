@@ -71,6 +71,9 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
 
                 Penkki penkki = new Penkki(this, xPos, yPos);
                 penkki.setOnToggledListener(this);
+                if(3 < yPos && yPos < 6 && 4 < xPos && xPos < 7){
+                    penkki.setTaken(true);
+                }
                 penkit[yPos*numOfCol + xPos] = penkki;
                 napit.addView(penkki);
             }
@@ -153,7 +156,7 @@ public class VarausActivity extends ActionBarActivity implements Penkki.OnToggle
         String varatutPaikat = "";
 
         for(int i = 0;i<penkit.length;i++) {
-            if (penkit[i].touchOn) {
+            if (penkit[i].touchOn && !penkit[i].taken) {
                 varatutPaikat = varatutPaikat + penkit[i].getIdY() + ":" + penkit[i].getIdX() + " ";
             }
         }
